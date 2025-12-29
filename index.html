@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EXAMPLE - IT Services & Solutions</title>
+    <title>BetaNexAI - AI & Software Solutions</title>
+    <!-- Favicon (same as logo for consistency) -->
+    <link rel="icon" href="./logo2-.png" type="image/png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
@@ -59,21 +61,25 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 0;
+            padding: 15px 0;
         }
 
-        .logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--primary-blue);
-            text-decoration: none;
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
+            text-decoration: none;
+            height: 70px;
         }
 
-        .logo i {
-            font-size: 32px;
+        .logo-img {
+            height: 65px; /* Increased logo size */
+            width: auto;
+            transition: var(--transition);
+            object-fit: contain;
+        }
+
+        .logo-text {
+            display: none; /* Completely removed text */
         }
 
         .nav-links {
@@ -121,7 +127,7 @@
         .hero {
             background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
             color: var(--white);
-            padding: 180px 0 100px;
+            padding: 200px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
@@ -200,7 +206,7 @@
 
         .services-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
@@ -212,6 +218,9 @@
             box-shadow: var(--shadow);
             transition: var(--transition);
             border: 1px solid var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
 
         .service-card:hover {
@@ -242,6 +251,12 @@
             font-size: 22px;
             margin-bottom: 15px;
             color: var(--text-color);
+        }
+
+        .service-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
         }
 
         /* About Section */
@@ -291,6 +306,95 @@
             color: var(--dark-gray);
             font-size: 18px;
             overflow: hidden;
+            position: relative;
+            background-image: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .about-image::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 102, 204, 0.1);
+        }
+
+        .about-image-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            color: var(--white);
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 10px;
+            width: 80%;
+        }
+
+        /* Reviews Section */
+        .reviews {
+            background-color: var(--light-gray);
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .review-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .review-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--light-blue);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 24px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .review-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .review-info p {
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+
+        .review-stars {
+            color: #FFC107;
+            margin-bottom: 15px;
+        }
+
+        .review-text {
+            font-style: italic;
+            color: var(--text-color);
         }
 
         /* Contact Section */
@@ -366,12 +470,17 @@
             margin-bottom: 50px;
         }
 
-        .footer-logo {
-            font-size: 28px;
-            font-weight: 700;
-            color: var(--white);
-            margin-bottom: 20px;
-            display: block;
+        .footer-logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-logo-img {
+            height: 70px;
+            width: auto;
+            margin-bottom: 15px;
+            filter: brightness(0) invert(1);
+            object-fit: contain;
         }
 
         .footer-about p {
@@ -414,6 +523,14 @@
 
         .footer-links li {
             margin-bottom: 12px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .footer-links i {
+            margin-right: 10px;
+            margin-top: 3px;
+            color: var(--primary-blue);
         }
 
         .footer-links a {
@@ -425,6 +542,10 @@
         .footer-links a:hover {
             color: var(--white);
             padding-left: 5px;
+        }
+
+        .contact-info {
+            color: rgba(255, 255, 255, 0.8);
         }
 
         .copyright {
@@ -477,7 +598,7 @@
 
             .nav-links {
                 position: fixed;
-                top: 80px;
+                top: 100px;
                 left: 0;
                 width: 100%;
                 background-color: var(--white);
@@ -498,8 +619,12 @@
                 pointer-events: all;
             }
 
+            .logo-img {
+                height: 55px;
+            }
+
             .hero {
-                padding: 150px 0 80px;
+                padding: 170px 0 80px;
             }
 
             .hero h1 {
@@ -516,6 +641,14 @@
 
             .contact-form {
                 padding: 30px;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-logo-img {
+                height: 60px;
             }
         }
 
@@ -539,6 +672,19 @@
             .footer-content {
                 grid-template-columns: 1fr;
             }
+
+            .logo-img {
+                height: 50px;
+            }
+
+            .navbar {
+                padding: 10px 0;
+            }
+        }
+
+        /* Logo hover effect */
+        .logo-img:hover {
+            transform: scale(1.05);
         }
     </style>
 </head>
@@ -547,9 +693,9 @@
     <header id="header">
         <div class="container">
             <nav class="navbar">
-                <a href="#" class="logo">
-                    <i class="fas fa-laptop-code"></i>
-                    EXAMPLE
+                <a href="#" class="logo-container">
+                    <!-- Logo Only - No Text -->
+                    <img src="./Logo.png" alt="BetaNexAI Logo" class="logo-img">
                 </a>
                 
                 <div class="hamburger" id="hamburger">
@@ -560,6 +706,7 @@
                     <li><a href="#home">Home</a></li>
                     <li><a href="#services">Services</a></li>
                     <li><a href="#about">About</a></li>
+                    <li><a href="#reviews">Reviews</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
@@ -570,9 +717,9 @@
     <section class="hero" id="home">
         <div class="container">
             <div class="hero-content">
-                <h1>Innovative IT Solutions for Your Business</h1>
-                <p>We provide cutting-edge technology services to help your company grow, secure, and optimize digital operations.</p>
-                <a href="#contact" class="cta-button">Get Started Today</a>
+                <h1>Intelligent Software & AI Solutions</h1>
+                <p>Bridge the gap between traditional software and the future of artificial intelligence. We empower enterprises by integrating cutting-edge AI into the core of their operations.</p>
+                <a href="#contact" class="cta-button">Start Your AI Journey</a>
             </div>
         </div>
     </section>
@@ -581,41 +728,57 @@
     <section class="section" id="services">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Our IT Services</h2>
-                <p>We offer a comprehensive range of IT services to meet the diverse needs of modern businesses.</p>
+                <h2>Our AI & Software Services</h2>
+                <p>Comprehensive solutions designed to transform how businesses work, scale, and compete in a rapidly evolving world.</p>
             </div>
             
             <div class="services-grid">
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-shield-alt"></i>
+                        <i class="fas fa-robot"></i>
                     </div>
-                    <h3>Cybersecurity</h3>
-                    <p>Protect your business from digital threats with our advanced security solutions and monitoring services.</p>
+                    <h3>Custom AI Agent Development</h3>
+                    <p>Empower your business with autonomous digital workers designed to handle complex workflows without human intervention. Our custom AI agents integrate seamlessly into your existing ecosystem to manage lead qualification, schedule appointments, and execute multi-step operational tasks.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-cloud"></i>
+                        <i class="fas fa-code"></i>
                     </div>
-                    <h3>Cloud Solutions</h3>
-                    <p>Migrate, manage, and optimize your cloud infrastructure with our expert cloud services.</p>
+                    <h3>Full-Stack Web & Mobile Development</h3>
+                    <p>We build high-performance, scalable digital products that provide a seamless experience across all platforms. Our development team specializes in modern tech stacks to deliver lightning-fast web applications and intuitive mobile apps tailored to your brand's specific needs.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-network-wired"></i>
+                        <i class="fas fa-cogs"></i>
                     </div>
-                    <h3>Network Management</h3>
-                    <p>Design, implement, and maintain robust network infrastructures for seamless connectivity.</p>
+                    <h3>ERP Solutions</h3>
+                    <p>Streamline your entire organization with a centralized ERP system that bridges the gap between departments. Our solutions integrate finance, human resources, supply chain, and customer management into a single, unified interface, providing a "single source of truth" for your business.</p>
                 </div>
                 
                 <div class="service-card fade-in">
                     <div class="service-icon">
-                        <i class="fas fa-headset"></i>
+                        <i class="fas fa-chart-bar"></i>
                     </div>
-                    <h3>IT Support</h3>
-                    <p>24/7 technical support and helpdesk services to keep your operations running smoothly.</p>
+                    <h3>Enterprise Data Analytics (AI Driven)</h3>
+                    <p>Transform your raw corporate data into a powerful strategic asset with our AI-driven analytics services. We offer predictive modeling, anomaly detection, and natural language querying, allowing your leadership team to ask complex questions and receive instant, data-backed answers.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-shopping-cart"></i>
+                    </div>
+                    <h3>AI-Powered E-commerce Solutions</h3>
+                    <p>Revolutionize the online shopping experience with intelligent retail technology designed to skyrocket conversion rates. We implement hyper-personalized recommendation engines, dynamic pricing algorithms, and visual search capabilities that allow customers to find exactly what they need with minimal friction.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3>AI Strategy, Consulting & Implementation</h3>
+                    <p>Navigate the rapidly evolving AI landscape with a clear, ROI-focused roadmap designed by our expert consultants. We perform deep-dive audits of your current technology and business processes to identify the highest-impact opportunities for AI integration.</p>
                 </div>
             </div>
         </div>
@@ -624,20 +787,115 @@
     <!-- About Section -->
     <section class="section about" id="about">
         <div class="container">
+            <div class="section-title fade-in">
+                <h2>About BetaNexAI</h2>
+                <p>Building the intelligent infrastructure of tomorrow</p>
+            </div>
+            
             <div class="about-content">
                 <div class="about-text fade-in">
-                    <h2>About EXAMPLE</h2>
-                    <p>Founded in 2010, EXAMPLE has grown to become a trusted provider of IT services for businesses of all sizes. Our team of certified professionals is dedicated to delivering innovative solutions that drive growth and efficiency.</p>
-                    <p>We believe in building long-term partnerships with our clients, understanding their unique challenges, and providing customized technology strategies that deliver measurable results.</p>
+                    <p>BetaNexAI is a premier technology solutions provider dedicated to bridging the gap between traditional software and the future of artificial intelligence. We believe that in the modern digital landscape, businesses don't just need code—they need intelligence. Our mission is to empower enterprises by integrating cutting-edge AI into the core of their operations, transforming how they work, scale, and compete.</p>
+                    
+                    <p>From building high-performance full-stack web and mobile applications to deploying sophisticated autonomous AI agents, we provide the architectural foundation and the cognitive power necessary for businesses to thrive in a rapidly evolving world.</p>
+                    
+                    <p>Our expertise is rooted in a diverse suite of specialized services designed to drive measurable growth. We specialize in developing Custom AI Agents that automate complex workflows and Enterprise Data Analytics that turn raw information into a strategic roadmap for leadership. For the retail sector, our AI-Powered E-commerce Solutions redefine customer journeys through hyper-personalization and predictive tech.</p>
                     
                     <div class="mission">
-                        <h3>Our Mission</h3>
-                        <p>To empower businesses through reliable, secure, and innovative IT solutions that enhance productivity, protect assets, and drive sustainable growth in an ever-evolving digital landscape.</p>
+                        <h3>Our Difference</h3>
+                        <p>What truly sets BetaNexAI apart is our commitment to AI Strategy, Consulting, and Implementation. We understand that every organization is unique, which is why we act as your strategic partner to identify the most impactful AI opportunities tailored to your specific goals. Our team of experts guides you through every step of the transformation—from initial roadmap design to the seamless deployment of complex systems.</p>
                     </div>
                 </div>
                 
                 <div class="about-image fade-in">
-                    <i class="fas fa-users" style="font-size: 80px; opacity: 0.5;"></i>
+                    <div class="about-image-content">
+                        <i class="fas fa-brain" style="font-size: 50px; margin-bottom: 20px;"></i>
+                        <p style="font-size: 18px; font-weight: 600;">Building Intelligent Infrastructure Since 2018</p>
+                        <p style="margin-top: 15px;">Trusted by 200+ enterprises worldwide</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews Section -->
+    <section class="section reviews" id="reviews">
+        <div class="container">
+            <div class="section-title fade-in">
+                <h2>What Our Clients Say</h2>
+                <p>Trusted by forward-thinking companies across industries</p>
+            </div>
+            
+            <div class="reviews-grid">
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">JS</div>
+                        <div class="review-info">
+                            <h4>Jennifer Simmons</h4>
+                            <p>CTO, TechFlow Solutions</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"BetaNexAI transformed our e-commerce platform with their AI recommendations. Our conversion rates increased by 47% in just three months. Their team understood our business needs perfectly and delivered beyond expectations."</p>
+                </div>
+                
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">MR</div>
+                        <div class="review-info">
+                            <h4>Michael Rodriguez</h4>
+                            <p>Operations Director, Global Retail Inc.</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"The ERP solution BetaNexAI implemented streamlined our entire supply chain. Departmental efficiency improved by 35%, and we now have real-time visibility across all operations. Their AI-driven analytics have been game-changing for decision-making."</p>
+                </div>
+                
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">SK</div>
+                        <div class="review-info">
+                            <h4>Sarah Kim</h4>
+                            <p>CEO, InnovateHealth</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star-half-alt"></i>
+                    </div>
+                    <p class="review-text">"Working with BetaNexAI on our custom AI agents has been transformative. Their autonomous digital workers handle 80% of our routine customer inquiries, freeing our team to focus on complex cases. The ROI was evident within the first quarter."</p>
+                </div>
+                
+                <div class="review-card fade-in">
+                    <div class="review-header">
+                        <div class="review-avatar">TD</div>
+                        <div class="review-info">
+                            <h4>Thomas Davidson</h4>
+                            <p>VP Technology, FinSecure Bank</p>
+                        </div>
+                    </div>
+                    <div class="review-stars">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <p class="review-text">"BetaNexAI's AI strategy consulting helped us navigate the complex landscape of financial technology AI implementation. Their roadmap was precise, actionable, and aligned perfectly with our compliance requirements. Highly recommended!"</p>
                 </div>
             </div>
         </div>
@@ -647,8 +905,8 @@
     <section class="section" id="contact">
         <div class="container">
             <div class="section-title fade-in">
-                <h2>Get In Touch</h2>
-                <p>Have questions or ready to transform your IT infrastructure? Contact us today for a free consultation.</p>
+                <h2>Start Your AI Transformation</h2>
+                <p>Ready to integrate cutting-edge AI into your business operations? Contact us today for a free consultation.</p>
             </div>
             
             <div class="contact-form fade-in">
@@ -659,16 +917,39 @@
                     </div>
                     
                     <div class="form-group">
+                        <label for="company">Company</label>
+                        <input type="text" id="company" class="form-control" placeholder="Enter your company name" required>
+                    </div>
+                    
+                    <div class="form-group">
                         <label for="email">Email Address</label>
                         <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" class="form-control" placeholder="Tell us about your project or inquiry" required></textarea>
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" class="form-control" placeholder="Enter your phone number">
                     </div>
                     
-                    <button type="submit" class="submit-btn">Send Message</button>
+                    <div class="form-group">
+                        <label for="service">Service Interested In</label>
+                        <select id="service" class="form-control" required>
+                            <option value="">Select a service</option>
+                            <option value="ai-agents">Custom AI Agent Development</option>
+                            <option value="web-dev">Full-Stack Web & Mobile Development</option>
+                            <option value="erp">ERP Solutions</option>
+                            <option value="analytics">Enterprise Data Analytics</option>
+                            <option value="ecommerce">AI-Powered E-commerce Solutions</option>
+                            <option value="consulting">AI Strategy & Consulting</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" class="form-control" placeholder="Tell us about your project, challenges, and goals" required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Request Consultation</button>
                 </form>
             </div>
         </div>
@@ -678,16 +959,31 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <div class="footer-about">
-                    <a href="#" class="footer-logo">EXAMPLE</a>
-                    <p>Providing innovative IT solutions since 2010. We help businesses leverage technology for growth, security, and efficiency.</p>
-                    
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
+                <div class="footer-logo-container">
+                    <!-- Footer Logo Only - No Text -->
+                    <img src="https://cdn-icons-png.flaticon.com/512/2103/2103655.png" alt="BetaNexAI Logo" class="footer-logo-img">
+                    <div class="footer-about">
+                        <p>Building the intelligent infrastructure of tomorrow. We empower enterprises by integrating cutting-edge AI into the core of their operations.</p>
+                        
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            <a href="#"><i class="fab fa-github"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                        </div>
                     </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Custom AI Agents</a></li>
+                        <li><a href="#services">Web & Mobile Development</a></li>
+                        <li><a href="#services">ERP Solutions</a></li>
+                        <li><a href="#services">Enterprise Analytics</a></li>
+                        <li><a href="#services">AI E-commerce</a></li>
+                        <li><a href="#services">AI Consulting</a></li>
+                    </ul>
                 </div>
                 
                 <div class="footer-links">
@@ -696,32 +992,53 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#services">Services</a></li>
                         <li><a href="#about">About Us</a></li>
+                        <li><a href="#reviews">Client Reviews</a></li>
                         <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                
-                <div class="footer-links">
-                    <h3>Our Services</h3>
-                    <ul>
-                        <li><a href="#services">Cybersecurity</a></li>
-                        <li><a href="#services">Cloud Solutions</a></li>
-                        <li><a href="#services">Network Management</a></li>
-                        <li><a href="#services">IT Support</a></li>
                     </ul>
                 </div>
                 
                 <div class="footer-links">
                     <h3>Contact Info</h3>
                     <ul>
-                        <li><i class="fas fa-map-marker-alt" style="margin-right: 10px;"></i> 123 Tech Street, City, State 12345</li>
-                        <li><i class="fas fa-phone" style="margin-right: 10px;"></i> (123) 456-7890</li>
-                        <li><i class="fas fa-envelope" style="margin-right: 10px;"></i> info@example.com</li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-info">
+                                <strong>Dubai Office:</strong><br>
+                                Dubai Silicon Oasis,<br>
+                                Dubai, UAE
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div class="contact-info">
+                                <strong>Karachi Office:</strong><br>
+                                Clifton, Block 5,<br>
+                                Karachi, Pakistan
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <div class="contact-info">
+                                <strong>Phone:</strong><br>
+                                UAE: +971 50 123 4567<br>
+                                PK: +92 21 34567890
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <div class="contact-info">
+                                <strong>Email:</strong><br>
+                                contact@betanexai.com<br>
+                                info@betanexai.com
+                            </div>
+                        </li>
                     </ul>
                 </div>
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 EXAMPLE IT Services. All rights reserved.</p>
+                <p>&copy; 2023 BetaNexAI. All rights reserved. | Bridging Traditional Software with AI Intelligence</p>
+                <p style="margin-top: 10px; font-size: 14px;">Dubai, UAE & Karachi, Pakistan</p>
             </div>
         </div>
     </footer>
@@ -768,7 +1085,7 @@
                 const targetElement = document.querySelector(targetId);
                 if (targetElement) {
                     window.scrollTo({
-                        top: targetElement.offsetTop - 80,
+                        top: targetElement.offsetTop - 100,
                         behavior: 'smooth'
                     });
                 }
@@ -783,12 +1100,14 @@
             
             // Get form values
             const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
             const email = document.getElementById('email').value;
-            const message = document.getElementById('message').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
             
             // In a real application, you would send this data to a server
             // For this demo, we'll just show an alert
-            alert(`Thank you, ${name}! Your message has been sent. We'll get back to you at ${email} as soon as possible.`);
+            alert(`Thank you, ${name} from ${company}!\n\nYour consultation request for "${service}" has been received.\n\nWe'll contact you at:\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nOur team will reach out within 24 hours.`);
             
             // Reset the form
             contactForm.reset();
