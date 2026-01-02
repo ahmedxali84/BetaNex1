@@ -44,17 +44,19 @@
 
         /* Header & Navigation */
         header {
-            background-color: var(--white);
+            background-color: rgba(255, 255, 255, 0.95);
             box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
             top: 0;
             z-index: 1000;
             transition: var(--transition);
+            backdrop-filter: blur(10px);
         }
 
         header.scrolled {
             padding: 5px 0;
+            background-color: rgba(255, 255, 255, 0.98);
         }
 
         .navbar {
@@ -123,14 +125,38 @@
             color: var(--primary-blue);
         }
 
-        /* Hero Section */
+        /* Hero Section with Video Background */
         .hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
             color: var(--white);
             padding: 200px 0 100px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            /* Remove user controls */
+            pointer-events: none;
+        }
+
+        .video-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 102, 204, 0.85) 0%, rgba(0, 82, 163, 0.85) 100%);
+            z-index: -3;
         }
 
         .hero-content {
@@ -148,15 +174,17 @@
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s forwards 0.2s;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
         }
 
         .hero p {
             font-size: 20px;
             margin-bottom: 40px;
-            opacity: 0.9;
+            opacity: 0.95;
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s forwards 0.4s;
+            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button {
@@ -169,15 +197,17 @@
             text-decoration: none;
             border-radius: 50px;
             transition: var(--transition);
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             opacity: 0;
             transform: translateY(30px);
             animation: fadeUp 0.8s forwards 0.6s;
+            border: none;
+            cursor: pointer;
         }
 
         .cta-button:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
         /* Services Section */
@@ -556,12 +586,55 @@
             font-size: 15px;
         }
 
+        /* Success Message */
+        .success-message {
+            display: none;
+            background-color: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+            text-align: center;
+            border: 1px solid #c3e6cb;
+        }
+
+        .success-message.show {
+            display: block;
+            animation: fadeIn 0.5s;
+        }
+
+        /* Loading Spinner */
+        .spinner {
+            display: none;
+            width: 40px;
+            height: 40px;
+            margin: 20px auto;
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid var(--primary-blue);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        .spinner.show {
+            display: block;
+        }
+
         /* Animations */
         @keyframes fadeUp {
             to {
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .fade-in {
@@ -601,7 +674,7 @@
                 top: 100px;
                 left: 0;
                 width: 100%;
-                background-color: var(--white);
+                background-color: rgba(255, 255, 255, 0.98);
                 flex-direction: column;
                 align-items: center;
                 padding: 30px 0;
@@ -611,6 +684,7 @@
                 pointer-events: none;
                 transition: var(--transition);
                 z-index: 999;
+                backdrop-filter: blur(10px);
             }
 
             .nav-links.active {
@@ -625,6 +699,7 @@
 
             .hero {
                 padding: 170px 0 80px;
+                min-height: 80vh;
             }
 
             .hero h1 {
@@ -695,7 +770,7 @@
             <nav class="navbar">
                 <a href="#" class="logo-container">
                     <!-- Logo Only - No Text -->
-                    <img src="./Logo.png" alt="BetaNexAI Logo" class="logo-img">
+                    <img src="./logo2-.png" alt="BetaNexAI Logo" class="logo-img">
                 </a>
                 
                 <div class="hamburger" id="hamburger">
@@ -713,8 +788,15 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
+    <!-- Hero Section with Video Background -->
     <section class="hero" id="home">
+        <!-- Replace this video URL with your own video -->
+        <video autoplay muted loop playsinline class="video-background" id="heroVideo">
+            <source src="./bg.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="video-overlay"></div>
+        
         <div class="container">
             <div class="hero-content">
                 <h1>Intelligent Software & AI Solutions</h1>
@@ -912,17 +994,17 @@
             <div class="contact-form fade-in">
                 <form id="contactForm">
                     <div class="form-group">
-                        <label for="name">Full Name</label>
+                        <label for="name">Full Name *</label>
                         <input type="text" id="name" class="form-control" placeholder="Enter your name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="company">Company</label>
+                        <label for="company">Company *</label>
                         <input type="text" id="company" class="form-control" placeholder="Enter your company name" required>
                     </div>
                     
                     <div class="form-group">
-                        <label for="email">Email Address</label>
+                        <label for="email">Email Address *</label>
                         <input type="email" id="email" class="form-control" placeholder="Enter your email" required>
                     </div>
                     
@@ -932,24 +1014,35 @@
                     </div>
                     
                     <div class="form-group">
-                        <label for="service">Service Interested In</label>
+                        <label for="service">Service Interested In *</label>
                         <select id="service" class="form-control" required>
                             <option value="">Select a service</option>
-                            <option value="ai-agents">Custom AI Agent Development</option>
-                            <option value="web-dev">Full-Stack Web & Mobile Development</option>
-                            <option value="erp">ERP Solutions</option>
-                            <option value="analytics">Enterprise Data Analytics</option>
-                            <option value="ecommerce">AI-Powered E-commerce Solutions</option>
-                            <option value="consulting">AI Strategy & Consulting</option>
+                            <option value="Custom AI Agent Development">Custom AI Agent Development</option>
+                            <option value="Full-Stack Web & Mobile Development">Full-Stack Web & Mobile Development</option>
+                            <option value="ERP Solutions">ERP Solutions</option>
+                            <option value="Enterprise Data Analytics">Enterprise Data Analytics</option>
+                            <option value="AI-Powered E-commerce Solutions">AI-Powered E-commerce Solutions</option>
+                            <option value="AI Strategy & Consulting">AI Strategy & Consulting</option>
                         </select>
                     </div>
                     
                     <div class="form-group">
-                        <label for="message">Project Details</label>
+                        <label for="message">Project Details *</label>
                         <textarea id="message" class="form-control" placeholder="Tell us about your project, challenges, and goals" required></textarea>
                     </div>
                     
-                    <button type="submit" class="submit-btn">Request Consultation</button>
+                    <button type="submit" class="submit-btn" id="submitBtn">Send Message via Gmail</button>
+                    
+                    <!-- Loading Spinner -->
+                    <div class="spinner" id="loadingSpinner"></div>
+                    
+                    <!-- Success Message -->
+                    <div class="success-message" id="successMessage">
+                        <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+                        <h3>Redirecting to Gmail...</h3>
+                        <p>Your message has been prepared. You'll be redirected to Gmail to send it.</p>
+                        <p>If nothing happens, please check your browser popup settings.</p>
+                    </div>
                 </form>
             </div>
         </div>
@@ -1027,8 +1120,7 @@
                         <li>
                             <i class="fas fa-envelope"></i>
                             <div class="contact-info">
-                                <strong>Email:</strong><br>
-                                contact@betanexai.com<br>
+                                <strong>Email:</strong>
                                 info@betanexai.com
                             </div>
                         </li>
@@ -1092,8 +1184,19 @@
             });
         });
         
-        // Form submission
+        // Video Setup - Auto play, muted, loop, no controls
+        const heroVideo = document.getElementById('heroVideo');
+        heroVideo.autoplay = true;
+        heroVideo.muted = true;
+        heroVideo.loop = true;
+        heroVideo.playsInline = true;
+        heroVideo.controls = false;
+        
+        // Form submission with Gmail redirect
         const contactForm = document.getElementById('contactForm');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+        const successMessage = document.getElementById('successMessage');
+        const submitBtn = document.getElementById('submitBtn');
         
         contactForm.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -1104,14 +1207,84 @@
             const email = document.getElementById('email').value;
             const phone = document.getElementById('phone').value;
             const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
             
-            // In a real application, you would send this data to a server
-            // For this demo, we'll just show an alert
-            alert(`Thank you, ${name} from ${company}!\n\nYour consultation request for "${service}" has been received.\n\nWe'll contact you at:\nEmail: ${email}\nPhone: ${phone || 'Not provided'}\n\nOur team will reach out within 24 hours.`);
+            // Show loading spinner and disable submit button
+            loadingSpinner.classList.add('show');
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Preparing Gmail...';
             
-            // Reset the form
-            contactForm.reset();
+            // Prepare email content
+            const emailSubject = `Consultation Request from ${name} - ${company}`;
+            
+            const emailBody = `New Consultation Request from BetaNexAI Website
+
+Name: ${name}
+Company: ${company}
+Email: ${email}
+Contact: ${phone || 'Not provided'}
+Service: ${service}
+Details: ${message}
+
+---
+This message was sent from the BetaNexAI contact form.
+            `;
+            
+            // Create Gmail mailto link with pre-filled content
+            const recipientEmail = "info@betanexai.com";
+            const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            
+            // Show success message
+            successMessage.classList.add('show');
+            
+            // Open Gmail in new tab after a short delay
+            setTimeout(() => {
+                window.open(gmailLink, '_blank');
+                
+                // Reset the form
+                contactForm.reset();
+                
+                // Hide success message after 5 seconds
+                setTimeout(() => {
+                    successMessage.classList.remove('show');
+                }, 5000);
+                
+            }, 1500); // Give user time to see the success message
+            
+            // Re-enable submit button after 2 seconds
+            setTimeout(() => {
+                loadingSpinner.classList.remove('show');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message via Gmail';
+            }, 2000);
         });
+        
+        // Alternative method using mailto: for browsers that don't support Gmail links
+        function openMailClient() {
+            const name = document.getElementById('name').value;
+            const company = document.getElementById('company').value;
+            const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            const emailSubject = `Consultation Request from ${name} - ${company}`;
+            const emailBody = `New Consultation Request from BetaNexAI Website
+
+Name: ${name}
+Company: ${company}
+Email: ${email}
+Contact: ${phone || 'Not provided'}
+Service: ${service}
+Details: ${message}
+
+---
+This message was sent from the BetaNexAI contact form.`;
+            
+            // Fallback to regular mailto
+            const mailtoLink = `mailto:info@betanexai.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+            window.location.href = mailtoLink;
+        }
         
         // Fade-in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
@@ -1140,6 +1313,15 @@
             
             card.addEventListener('mouseleave', function() {
                 this.style.transform = 'translateY(0)';
+            });
+        });
+        
+        // Ensure video plays automatically
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('heroVideo');
+            video.play().catch(function(error) {
+                console.log("Video autoplay failed:", error);
+                // If autoplay fails, show a play button overlay (optional)
             });
         });
     </script>
