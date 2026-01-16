@@ -117,61 +117,13 @@
             width: 100%;
         }
 
-        /* Industries Dropdown */
-        .industries-dropdown {
-            position: relative;
-        }
-
-        .industries-dropdown > a::after {
-            content: '\f078';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            margin-left: 8px;
-            font-size: 12px;
-        }
-
-        .dropdown-content {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--white);
-            min-width: 300px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-            border-radius: 10px;
-            padding: 15px 0;
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            z-index: 1001;
-            border: 1px solid var(--medium-gray);
-        }
-
-        .dropdown-content a {
-            display: block;
-            padding: 12px 25px;
-            color: var(--text-color);
-            text-decoration: none;
-            transition: var(--transition);
-            font-size: 15px;
-            border-left: 3px solid transparent;
-        }
-
-        .dropdown-content a:hover {
-            background-color: var(--light-blue);
+        /* Active Navigation Link */
+        .nav-links a.active {
             color: var(--primary-blue);
-            border-left: 3px solid var(--primary-blue);
-            padding-left: 30px;
         }
 
-        .dropdown-content a::after {
-            display: none;
-        }
-
-        .industries-dropdown:hover .dropdown-content {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .nav-links a.active::after {
+            width: 100%;
         }
 
         .hamburger {
@@ -827,15 +779,6 @@
             transform: translateY(0);
         }
 
-        /* Active Navigation Link */
-        .nav-links a.active {
-            color: var(--primary-blue);
-        }
-
-        .nav-links a.active::after {
-            width: 100%;
-        }
-
         /* Mobile Responsiveness */
         @media (max-width: 992px) {
             .hero h1, .page-hero h1 {
@@ -899,27 +842,6 @@
                 transform: translateY(0);
                 opacity: 1;
                 pointer-events: all;
-            }
-
-            .dropdown-content {
-                position: static;
-                opacity: 1;
-                visibility: visible;
-                transform: none;
-                box-shadow: none;
-                border: none;
-                padding: 0;
-                margin-left: 20px;
-                margin-top: 10px;
-                display: none;
-            }
-
-            .dropdown-content.active {
-                display: block;
-            }
-
-            .industries-dropdown:hover .dropdown-content {
-                transform: none;
             }
 
             .logo-img {
@@ -1066,18 +988,7 @@
                     <li><a href="#" data-page="home" class="active">Home</a></li>
                     <li><a href="#" data-page="services">Services</a></li>
                     <li><a href="#" data-page="about">About</a></li>
-                    <li class="industries-dropdown">
-                        <a href="#" data-page="industries">Industries <i class="fas fa-chevron-down"></i></a>
-                        <div class="dropdown-content" id="industriesDropdown">
-                            <a href="#" data-industry="healthcare">Healthcare</a>
-                            <a href="#" data-industry="education">Education</a>
-                            <a href="#" data-industry="media">Media & Entertainment</a>
-                            <a href="#" data-industry="finance">Finance</a>
-                            <a href="#" data-industry="retail">Retail</a>
-                            <a href="#" data-industry="manufacturing">Manufacturing</a>
-                            <a href="#" data-industry="travel">Travel</a>
-                        </div>
-                    </li>
+                    <li><a href="#" data-page="industries">Industries</a></li>
                     <li><a href="#" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1432,8 +1343,23 @@
                     <p>Our industry-specific expertise ensures that our AI and software solutions address the unique challenges and opportunities of your business sector.</p>
                 </div>
                 
+                <!-- Industry Navigation Tabs -->
+                <div class="industry-tabs" style="margin-bottom: 40px;">
+                    <div style="display: flex; flex-wrap: wrap; gap: 10px; justify-content: center;">
+                        <button class="industry-tab active" data-industry="all">All Industries</button>
+                        <button class="industry-tab" data-industry="healthcare">Healthcare</button>
+                        <button class="industry-tab" data-industry="education">Education</button>
+                        <button class="industry-tab" data-industry="media">Media & Entertainment</button>
+                        <button class="industry-tab" data-industry="finance">Finance</button>
+                        <button class="industry-tab" data-industry="retail">Retail</button>
+                        <button class="industry-tab" data-industry="manufacturing">Manufacturing</button>
+                        <button class="industry-tab" data-industry="travel">Travel</button>
+                    </div>
+                </div>
+                
                 <div class="industries-grid">
-                    <div class="industry-card fade-in">
+                    <!-- Healthcare Industry -->
+                    <div class="industry-card fade-in" data-industry="healthcare">
                         <div class="industry-image">
                             <img src="./image1.png" alt="Healthcare Industry">
                         </div>
@@ -1457,7 +1383,8 @@
                         </div>
                     </div>
                     
-                    <div class="industry-card fade-in">
+                    <!-- Education Industry -->
+                    <div class="industry-card fade-in" data-industry="education">
                         <div class="industry-image">
                             <img src="./image2.png" alt="Education Industry">
                         </div>
@@ -1481,7 +1408,8 @@
                         </div>
                     </div>
                     
-                    <div class="industry-card fade-in">
+                    <!-- Media & Entertainment -->
+                    <div class="industry-card fade-in" data-industry="media">
                         <div class="industry-image">
                             <img src="./image3.png" alt="Media & Entertainment">
                         </div>
@@ -1505,7 +1433,8 @@
                         </div>
                     </div>
                     
-                    <div class="industry-card fade-in">
+                    <!-- Finance & Banking -->
+                    <div class="industry-card fade-in" data-industry="finance">
                         <div class="industry-image">
                             <img src="./image4.png" alt="Finance & Banking">
                         </div>
@@ -1529,7 +1458,8 @@
                         </div>
                     </div>
                     
-                    <div class="industry-card fade-in">
+                    <!-- Retail & E-commerce -->
+                    <div class="industry-card fade-in" data-industry="retail">
                         <div class="industry-image">
                             <img src="./image5.png" alt="Retail & E-commerce">
                         </div>
@@ -1553,7 +1483,8 @@
                         </div>
                     </div>
                     
-                    <div class="industry-card fade-in">
+                    <!-- Manufacturing & Supply Chain -->
+                    <div class="industry-card fade-in" data-industry="manufacturing">
                         <div class="industry-image">
                             <img src="./image6.png" alt="Manufacturing & Supply Chain">
                         </div>
@@ -1577,7 +1508,8 @@
                         </div>
                     </div>
                     
-                    <div class="industry-card fade-in">
+                    <!-- Travel & Hospitality -->
+                    <div class="industry-card fade-in" data-industry="travel">
                         <div class="industry-image">
                             <img src="./image7.png" alt="Travel & Hospitality">
                         </div>
@@ -1852,31 +1784,6 @@
                 button.addEventListener('click', handleNavClick);
             });
             
-            // Handle industries dropdown links
-            document.querySelectorAll('.dropdown-content a[data-industry]').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    showPage('industries');
-                    
-                    // Scroll to specific industry after a delay
-                    setTimeout(() => {
-                        const industryName = this.getAttribute('data-industry');
-                        const industryCards = document.querySelectorAll('.industry-card');
-                        industryCards.forEach(card => {
-                            if (card.querySelector('h3').textContent.toLowerCase().includes(industryName)) {
-                                card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                                
-                                // Add highlight effect
-                                card.style.boxShadow = '0 0 0 3px rgba(0, 102, 204, 0.3)';
-                                setTimeout(() => {
-                                    card.style.boxShadow = '';
-                                }, 3000);
-                            }
-                        });
-                    }, 500);
-                });
-            });
-            
             // Handle browser back/forward buttons
             window.addEventListener('popstate', function(event) {
                 if (event.state && event.state.page) {
@@ -1903,27 +1810,42 @@
                 hamburger.innerHTML = navLinksContainer.classList.contains('active') 
                     ? '<i class="fas fa-times"></i>' 
                     : '<i class="fas fa-bars"></i>';
-                
-                // Toggle industries dropdown on mobile
-                if (window.innerWidth <= 768) {
-                    const dropdown = document.getElementById('industriesDropdown');
-                    if (dropdown.classList.contains('active')) {
-                        dropdown.classList.remove('active');
-                    }
-                }
             });
+        });
+        
+        // Industry Tab Filtering
+        document.addEventListener('DOMContentLoaded', function() {
+            const industryTabs = document.querySelectorAll('.industry-tab');
+            const industryCards = document.querySelectorAll('.industry-card');
             
-            // Mobile industries dropdown toggle
-            const industriesLink = document.querySelector('.industries-dropdown > a');
-            if (industriesLink) {
-                industriesLink.addEventListener('click', function(e) {
-                    if (window.innerWidth <= 768) {
-                        e.preventDefault();
-                        const dropdown = document.getElementById('industriesDropdown');
-                        dropdown.classList.toggle('active');
-                    }
+            industryTabs.forEach(tab => {
+                tab.addEventListener('click', function() {
+                    // Remove active class from all tabs
+                    industryTabs.forEach(t => t.classList.remove('active'));
+                    
+                    // Add active class to clicked tab
+                    this.classList.add('active');
+                    
+                    const industry = this.getAttribute('data-industry');
+                    
+                    // Filter industry cards
+                    industryCards.forEach(card => {
+                        if (industry === 'all' || card.getAttribute('data-industry') === industry) {
+                            card.style.display = 'flex';
+                            setTimeout(() => {
+                                card.style.opacity = '1';
+                                card.style.transform = 'translateY(0)';
+                            }, 10);
+                        } else {
+                            card.style.opacity = '0';
+                            card.style.transform = 'translateY(20px)';
+                            setTimeout(() => {
+                                card.style.display = 'none';
+                            }, 300);
+                        }
+                    });
                 });
-            }
+            });
         });
         
         // Header scroll effect
@@ -2067,48 +1989,40 @@ This message was sent from the BetaNexAI contact form.
             });
         });
         
-        // Add smooth page transitions
-        document.querySelectorAll('a[data-page]').forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const pageId = this.getAttribute('data-page');
-                
-                // Add page transition effect
-                document.querySelectorAll('.page-content').forEach(page => {
-                    page.style.opacity = '0';
-                    page.style.transform = 'translateY(20px)';
-                });
-                
-                setTimeout(() => {
-                    // Show the new page
-                    document.querySelectorAll('.page-content').forEach(page => {
-                        page.classList.remove('active');
-                    });
-                    
-                    const targetPage = document.getElementById(pageId + '-page');
-                    if (targetPage) {
-                        targetPage.classList.add('active');
-                        targetPage.style.opacity = '1';
-                        targetPage.style.transform = 'translateY(0)';
-                    }
-                    
-                    // Update active nav link
-                    document.querySelectorAll('.nav-links a').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    this.classList.add('active');
-                    
-                    // Update URL
-                    history.pushState({ page: pageId }, '', `#${pageId}`);
-                    
-                    // Scroll to top
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
-                    
-                    // Trigger fade-in animations
-                    setTimeout(fadeInOnScroll, 100);
-                }, 300);
-            });
-        });
+        // Add CSS for industry tabs
+        const style = document.createElement('style');
+        style.textContent = `
+            .industry-tabs {
+                margin-bottom: 40px;
+            }
+            
+            .industry-tab {
+                background-color: var(--light-blue);
+                border: 2px solid transparent;
+                color: var(--primary-blue);
+                padding: 10px 20px;
+                border-radius: 30px;
+                font-weight: 600;
+                cursor: pointer;
+                transition: var(--transition);
+                margin: 5px;
+                font-size: 15px;
+            }
+            
+            .industry-tab:hover {
+                background-color: var(--primary-blue);
+                color: white;
+                transform: translateY(-3px);
+            }
+            
+            .industry-tab.active {
+                background-color: var(--primary-blue);
+                color: white;
+                border-color: var(--primary-blue);
+                box-shadow: 0 5px 15px rgba(0, 102, 204, 0.2);
+            }
+        `;
+        document.head.appendChild(style);
     </script>
 </body>
 </html>
