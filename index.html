@@ -126,6 +126,25 @@
             width: 100%;
         }
 
+        /* Highlighted Navigation Buttons */
+        .nav-links a.highlighted {
+            background-color: var(--primary-blue);
+            color: var(--white) !important;
+            padding: 8px 20px !important;
+            border-radius: 25px;
+            transition: var(--transition);
+        }
+
+        .nav-links a.highlighted:hover {
+            background-color: var(--dark-blue);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.2);
+        }
+
+        .nav-links a.highlighted::after {
+            display: none;
+        }
+
         .hamburger {
             display: none;
             cursor: pointer;
@@ -536,9 +555,392 @@
             font-size: 14px;
         }
 
-        /* Contact Section */
-        .contact-form {
-            max-width: 700px;
+        /* AI Products Page Styles - UPDATED */
+        .ai-products-page .page-hero,
+        .ai-trainings-page .page-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            height: 50vh;
+            min-height: 400px;
+            max-height: 500px;
+        }
+
+        .ai-products-page .video-background,
+        .ai-trainings-page .video-background {
+            display: none;
+        }
+
+        .ai-products-trainings-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .ai-products-trainings-container .section-title {
+            grid-column: 1 / -1;
+            margin-bottom: 40px;
+        }
+
+        .ai-products-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .ai-product-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .ai-product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .ai-product-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-blue);
+            font-size: 36px;
+            transition: var(--transition);
+        }
+
+        .ai-product-card:hover .ai-product-icon {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .ai-product-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+        }
+
+        .ai-product-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .ai-product-features {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary-blue);
+            text-align: left;
+        }
+
+        .ai-product-features h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .ai-product-features ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .ai-product-features li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .ai-product-features i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 14px;
+        }
+
+        /* AI Trainings Page Styles - UPDATED */
+        .trainings-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+
+        .training-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            position: relative;
+        }
+
+        .training-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .training-icon {
+            width: 80px;
+            height: 80px;
+            background-color: var(--light-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            color: var(--primary-blue);
+            font-size: 36px;
+            transition: var(--transition);
+        }
+
+        .training-card:hover .training-icon {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .training-card h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            text-align: center;
+        }
+
+        .training-card p {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .training-highlights {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            border-left: 4px solid var(--primary-blue);
+            text-align: left;
+        }
+
+        .training-highlights h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .training-highlights ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .training-highlights li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .training-highlights i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 14px;
+        }
+
+        /* Combined CTA Section for AI Products & Trainings */
+        .ai-cta-section {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            color: var(--white);
+            padding: 80px 0;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 20px;
+        }
+
+        .ai-cta-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ai-cta-content h2 {
+            font-size: 42px;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .ai-cta-content p {
+            font-size: 20px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+        }
+
+        .ai-cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .ai-cta-button {
+            display: inline-block;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            padding: 15px 40px;
+            font-size: 18px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 50px;
+            transition: var(--transition);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .ai-cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            background-color: var(--light-blue);
+        }
+
+        .ai-cta-button.secondary {
+            background-color: transparent;
+            color: var(--white);
+            border: 2px solid var(--white);
+        }
+
+        .ai-cta-button.secondary:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+
+        /* Careers Page Styles */
+        .careers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .career-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            padding: 40px 30px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+
+        .career-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .career-header {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+
+        .career-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light-blue);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            color: var(--primary-blue);
+            font-size: 28px;
+            transition: var(--transition);
+            flex-shrink: 0;
+        }
+
+        .career-card:hover .career-icon {
+            background-color: var(--primary-blue);
+            color: var(--white);
+        }
+
+        .career-title {
+            font-size: 24px;
+            color: var(--text-color);
+            margin-bottom: 10px;
+        }
+
+        .career-description {
+            color: var(--dark-gray);
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        .responsibilities {
+            background-color: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            text-align: left;
+        }
+
+        .responsibilities h4 {
+            color: var(--primary-blue);
+            margin-bottom: 15px;
+            font-size: 18px;
+        }
+
+        .responsibilities ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .responsibilities li {
+            padding: 8px 0;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .responsibilities i {
+            color: var(--primary-blue);
+            margin-right: 10px;
+            margin-top: 3px;
+            font-size: 14px;
+        }
+
+        .benefits {
+            background-color: var(--light-blue);
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 4px solid var(--primary-blue);
+            text-align: left;
+        }
+
+        .benefits h4 {
+            color: var(--primary-blue);
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .benefits p {
+            color: var(--text-color);
+            margin-bottom: 0;
+        }
+
+        /* Project Proposal Form */
+        .project-proposal-form {
+            max-width: 800px;
             margin: 0 auto;
             background-color: var(--white);
             padding: 50px;
@@ -593,6 +995,16 @@
             background-color: var(--dark-blue);
             transform: translateY(-3px);
             box-shadow: 0 7px 15px rgba(0, 102, 204, 0.2);
+        }
+
+        /* Contact Section */
+        .contact-form {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: var(--white);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
         }
 
         /* Footer */
@@ -750,6 +1162,241 @@
             font-weight: 500;
         }
 
+        /* Blogs Section Styles */
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+        }
+
+        .blog-card {
+            background-color: var(--white);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid var(--medium-gray);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .blog-image {
+            height: 220px;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-content {
+            padding: 30px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: var(--dark-gray);
+            font-size: 14px;
+        }
+
+        .blog-category {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-right: 10px;
+            font-size: 13px;
+        }
+
+        .blog-date {
+            display: flex;
+            align-items: center;
+        }
+
+        .blog-date i {
+            margin-right: 5px;
+        }
+
+        .blog-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: var(--text-color);
+            line-height: 1.3;
+        }
+
+        .blog-excerpt {
+            color: var(--dark-gray);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .blog-read-more {
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            margin-top: auto;
+            transition: var(--transition);
+        }
+
+        .blog-read-more:hover {
+            color: var(--dark-blue);
+            transform: translateX(5px);
+        }
+
+        .blog-read-more i {
+            margin-left: 8px;
+            transition: var(--transition);
+        }
+
+        .blog-read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Individual Blog Post Page */
+        .blog-post {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .blog-post-image {
+            width: 100%;
+            height: 400px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-bottom: 40px;
+        }
+
+        .blog-post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .blog-post-header {
+            margin-bottom: 40px;
+        }
+
+        .blog-post-title {
+            font-size: 42px;
+            font-weight: 700;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .blog-post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 30px;
+            color: var(--dark-gray);
+            font-size: 16px;
+        }
+
+        .blog-post-category {
+            background-color: var(--light-blue);
+            color: var(--primary-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-right: 15px;
+        }
+
+        .blog-post-content {
+            font-size: 18px;
+            line-height: 1.8;
+        }
+
+        .blog-post-content h2 {
+            font-size: 32px;
+            color: var(--primary-blue);
+            margin: 50px 0 20px;
+            font-weight: 700;
+        }
+
+        .blog-post-content h3 {
+            font-size: 24px;
+            color: var(--text-color);
+            margin: 30px 0 15px;
+            font-weight: 600;
+        }
+
+        .blog-post-content p {
+            margin-bottom: 25px;
+        }
+
+        .blog-post-content ul, .blog-post-content ol {
+            margin-bottom: 25px;
+            padding-left: 20px;
+        }
+
+        .blog-post-content li {
+            margin-bottom: 10px;
+        }
+
+        .blog-post-content strong {
+            font-weight: 600;
+        }
+
+        .blog-post-content .highlight-box {
+            background-color: var(--light-blue);
+            padding: 30px;
+            border-radius: 10px;
+            border-left: 5px solid var(--primary-blue);
+            margin: 40px 0;
+        }
+
+        .blog-post-content .highlight-box h3 {
+            margin-top: 0;
+            color: var(--primary-blue);
+        }
+
+        .back-to-blogs {
+            display: inline-flex;
+            align-items: center;
+            color: var(--primary-blue);
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 50px;
+            transition: var(--transition);
+        }
+
+        .back-to-blogs:hover {
+            color: var(--dark-blue);
+            transform: translateX(-5px);
+        }
+
+        .back-to-blogs i {
+            margin-right: 10px;
+            transition: var(--transition);
+        }
+
+        .back-to-blogs:hover i {
+            transform: translateX(-5px);
+        }
+
         /* Animations */
         @keyframes fadeUp {
             to {
@@ -812,6 +1459,27 @@
             .industry-icon {
                 margin-right: 0;
                 margin-bottom: 15px;
+            }
+
+            .blogs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-post-title {
+                font-size: 36px;
+            }
+
+            .ai-products-grid, .trainings-grid, .careers-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .ai-products-trainings-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .ai-cta-content h2 {
+                font-size: 36px;
             }
         }
 
@@ -897,6 +1565,63 @@
             .industry-image {
                 height: 180px;
             }
+
+            .blog-post-image {
+                height: 300px;
+            }
+
+            .blog-post-title {
+                font-size: 30px;
+            }
+
+            .blog-post-content {
+                font-size: 16px;
+            }
+
+            .blog-post-content h2 {
+                font-size: 28px;
+            }
+
+            .blog-post-content h3 {
+                font-size: 22px;
+            }
+
+            .ai-product-card, .training-card, .career-card {
+                padding: 30px 20px;
+            }
+
+            .project-proposal-form {
+                padding: 30px;
+            }
+
+            .ai-products-page .page-hero,
+            .ai-trainings-page .page-hero {
+                height: 45vh;
+                min-height: 350px;
+            }
+
+            .ai-cta-section {
+                padding: 60px 20px;
+            }
+
+            .ai-cta-content h2 {
+                font-size: 32px;
+            }
+
+            .ai-cta-content p {
+                font-size: 18px;
+            }
+
+            .ai-cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .ai-cta-button {
+                width: 100%;
+                max-width: 300px;
+                text-align: center;
+            }
         }
 
         @media (max-width: 576px) {
@@ -946,6 +1671,37 @@
             .industry-image {
                 height: 150px;
             }
+
+            .blog-post-title {
+                font-size: 26px;
+            }
+
+            .blog-post-image {
+                height: 220px;
+            }
+
+            .blog-post-content h2 {
+                font-size: 24px;
+            }
+
+            .nav-links a.highlighted {
+                padding: 8px 15px !important;
+                font-size: 15px;
+            }
+
+            .ai-products-page .page-hero,
+            .ai-trainings-page .page-hero {
+                height: 40vh;
+                min-height: 300px;
+            }
+
+            .ai-cta-content h2 {
+                font-size: 28px;
+            }
+
+            .ai-cta-content p {
+                font-size: 16px;
+            }
         }
 
         /* Logo hover effect */
@@ -954,7 +1710,7 @@
         }
 
         /* Enhanced Card Effects */
-        .service-card, .industry-card, .stat-card {
+        .service-card, .industry-card, .stat-card, .blog-card, .ai-product-card, .training-card, .career-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
@@ -989,6 +1745,10 @@
                     <li><a href="#" data-page="services">Services</a></li>
                     <li><a href="#" data-page="about">About</a></li>
                     <li><a href="#" data-page="industries">Industries</a></li>
+                    <li><a href="#" data-page="blogs">Blogs</a></li>
+                    <li><a href="#" data-page="ai-products" class="highlighted">AI Products</a></li>
+                    <li><a href="#" data-page="ai-trainings" class="highlighted">AI Trainings</a></li>
+                    <li><a href="#" data-page="careers">Careers</a></li>
                     <li><a href="#" data-page="contact">Contact</a></li>
                 </ul>
             </nav>
@@ -1537,6 +2297,657 @@
         </section>
     </section>
 
+    <!-- Blogs Page -->
+    <section class="page-content" id="blogs-page">
+        <!-- Blogs Hero with Video -->
+        <section class="page-hero">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="./bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1>BetaNexAI Insights & Blogs</h1>
+                    <p>Explore our latest insights on AI, software development, and digital transformation. Stay ahead with expert perspectives on technology trends and industry innovations.</p>
+                    <a href="#blogs-grid" class="cta-button">Explore Articles</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>Latest Articles & Insights</h2>
+                    <p>Dive deep into the world of AI and software development with our expert-written articles, case studies, and thought leadership pieces.</p>
+                </div>
+                
+                <div class="blogs-grid" id="blogs-grid">
+                    <!-- Blog 1: Custom AI Agent Development -->
+                    <div class="blog-card fade-in" data-blog="ai-agents">
+                        <div class="blog-image">
+                            <img src="./blogimg1.jpg" alt="Custom AI Agent Development">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">AI Development</span>
+                                <span class="blog-date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                            </div>
+                            <h3 class="blog-title">Custom AI Agent Development: Powering Intelligent Automation at Scale</h3>
+                            <p class="blog-excerpt">In today's fast-paced digital landscape, businesses need more than basic automation—they need intelligent systems that can think, learn, and act independently. Custom AI Agent Development bridges this gap by delivering autonomous AI agents...</p>
+                            <a href="#" class="blog-read-more" data-blog-post="ai-agents">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 2: Full-Stack Development -->
+                    <div class="blog-card fade-in" data-blog="full-stack">
+                        <div class="blog-image">
+                            <img src="./blogimg2.jpg" alt="Full-Stack Web & Mobile Development">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Development</span>
+                                <span class="blog-date"><i class="far fa-calendar"></i> March 10, 2024</span>
+                            </div>
+                            <h3 class="blog-title">Full-Stack Web & Mobile Development: Building Scalable Digital Experiences</h3>
+                            <p class="blog-excerpt">In a digital-first world, performance, scalability, and user experience define the success of any product. Full-Stack Web & Mobile Development brings together powerful frontend design, robust backend architecture, and seamless platform integration...</p>
+                            <a href="#" class="blog-read-more" data-blog-post="full-stack">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 3: ERP Solutions -->
+                    <div class="blog-card fade-in" data-blog="erp">
+                        <div class="blog-image">
+                            <img src="./blogimg3.jpg" alt="ERP Solutions">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Business Solutions</span>
+                                <span class="blog-date"><i class="far fa-calendar"></i> March 5, 2024</span>
+                            </div>
+                            <h3 class="blog-title">ERP Solutions: Unifying Business Operations with Intelligent Systems</h3>
+                            <p class="blog-excerpt">As organizations grow, disconnected systems and data silos become major barriers to efficiency and informed decision-making. ERP (Enterprise Resource Planning) Solutions address this challenge by bringing all core business functions into one centralized platform...</p>
+                            <a href="#" class="blog-read-more" data-blog-post="erp">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 4: Enterprise Data Analytics -->
+                    <div class="blog-card fade-in" data-blog="analytics">
+                        <div class="blog-image">
+                            <img src="./blogimg4.jpg" alt="Enterprise Data Analytics">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">Data Analytics</span>
+                                <span class="blog-date"><i class="far fa-calendar"></i> February 28, 2024</span>
+                            </div>
+                            <h3 class="blog-title">Enterprise Data Analytics: Turning Data into Strategic Intelligence</h3>
+                            <p class="blog-excerpt">In today's data-driven economy, information alone is not enough—insight is the true competitive advantage. Enterprise Data Analytics empowers organizations to transform vast amounts of raw corporate data into clear, actionable intelligence...</p>
+                            <a href="#" class="blog-read-more" data-blog-post="analytics">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 5: AI-Powered E-commerce -->
+                    <div class="blog-card fade-in" data-blog="ecommerce">
+                        <div class="blog-image">
+                            <img src="./blogimg5.jpg" alt="AI-Powered E-commerce">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">E-commerce</span>
+                                <span class="blog-date"><i class="far fa-calendar"></i> February 22, 2024</span>
+                            </div>
+                            <h3 class="blog-title">AI-Powered E-commerce: Redefining the Future of Online Shopping</h3>
+                            <p class="blog-excerpt">The digital retail landscape is evolving rapidly, and customer expectations are higher than ever. AI-Powered E-commerce transforms traditional online stores into intelligent, data-driven shopping platforms that deliver personalized experiences...</p>
+                            <a href="#" class="blog-read-more" data-blog-post="ecommerce">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                    
+                    <!-- Blog 6: AI Strategy & Consulting -->
+                    <div class="blog-card fade-in" data-blog="strategy">
+                        <div class="blog-image">
+                            <img src="./blogimg6.jpg" alt="AI Strategy & Consulting">
+                        </div>
+                        <div class="blog-content">
+                            <div class="blog-meta">
+                                <span class="blog-category">AI Strategy</span>
+                                <span class="blog-date"><i class="far fa-calendar"></i> February 18, 2024</span>
+                            </div>
+                            <h3 class="blog-title">AI Strategy & Consulting: Charting a Clear Path to Intelligent Transformation</h3>
+                            <p class="blog-excerpt">In the fast-moving world of artificial intelligence, having a strategy is not optional—it's essential. AI Strategy & Consulting helps organizations navigate the complexities of AI adoption with confidence, ensuring that every investment drives measurable business value...</p>
+                            <a href="#" class="blog-read-more" data-blog-post="strategy">Read Full Article <i class="fas fa-arrow-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- AI Products Page - UPDATED -->
+    <section class="page-content ai-products-page" id="ai-products-page">
+        <!-- AI Products Hero with Gradient Background -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>AI-Powered Products</h1>
+                    <p>Designed to Accelerate Your Business Growth with Intelligent Automation</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="ai-products-trainings-container">
+                    <div class="section-title fade-in">
+                        <h2>AI Products & Trainings</h2>
+                        <p>Transform your business with our cutting-edge AI products and empower your team with comprehensive AI training programs.</p>
+                    </div>
+                    
+                    <!-- AI Products Section -->
+                    <div class="ai-products-section">
+                        <div class="section-title fade-in">
+                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI-Powered Products</h3>
+                        </div>
+                        
+                        <div class="ai-products-grid">
+                            <!-- AI WhatsApp Agent -->
+                            <div class="ai-product-card fade-in">
+                                <div class="ai-product-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h3>AI WhatsApp Agent</h3>
+                                <p>An intelligent AI-powered agent that automates customer communication on WhatsApp, enabling businesses to respond faster, smarter, and around the clock.</p>
+                                <div class="ai-product-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Provides instant 24/7 responses to customer inquiries</li>
+                                        <li><i class="fas fa-check-circle"></i> Automates FAQs, lead handling, bookings, and follow-ups</li>
+                                        <li><i class="fas fa-check-circle"></i> Improves customer experience while reducing manual support effort</li>
+                                        <li><i class="fas fa-check-circle"></i> Seamless integration with existing CRM systems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Sales Generator -->
+                            <div class="ai-product-card fade-in">
+                                <div class="ai-product-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>AI Sales Generator</h3>
+                                <p>A smart AI solution designed to generate, engage, and convert leads through personalized, data-driven sales interactions.</p>
+                                <div class="ai-product-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Identifies and qualifies high-potential leads automatically</li>
+                                        <li><i class="fas fa-check-circle"></i> Delivers tailored sales conversations to increase conversions</li>
+                                        <li><i class="fas fa-check-circle"></i> Helps businesses scale sales while minimizing human dependency</li>
+                                        <li><i class="fas fa-check-circle"></i> Real-time analytics and performance tracking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Office Assistant -->
+                            <div class="ai-product-card fade-in">
+                                <div class="ai-product-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h3>AI Office Assistant</h3>
+                                <p>A virtual AI assistant built to streamline daily office operations and enhance team productivity.</p>
+                                <div class="ai-product-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Manages schedules, reminders, and routine administrative tasks</li>
+                                        <li><i class="fas fa-check-circle"></i> Organizes information and supports internal workflows</li>
+                                        <li><i class="fas fa-check-circle"></i> Saves time by allowing teams to focus on high-impact work</li>
+                                        <li><i class="fas fa-check-circle"></i> Integrates with email, calendar, and project management tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Trainings Section -->
+                    <div class="ai-trainings-section">
+                        <div class="section-title fade-in">
+                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI Training Programs</h3>
+                        </div>
+                        
+                        <div class="trainings-grid">
+                            <!-- Augmented Intelligence -->
+                            <div class="training-card fade-in">
+                                <div class="training-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Augmented Intelligence</h3>
+                                <p>Training that emphasizes human–AI collaboration, enabling professionals to enhance decision-making rather than replace human judgment.</p>
+                                <div class="training-highlights">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Learn how AI supports and enhances human intelligence</li>
+                                        <li><i class="fas fa-check-circle"></i> Apply AI tools to real-world business and operational scenarios</li>
+                                        <li><i class="fas fa-check-circle"></i> Understand human-AI collaboration frameworks</li>
+                                        <li><i class="fas fa-check-circle"></i> Implement AI-assisted decision-making processes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Systems Engineering -->
+                            <div class="training-card fade-in">
+                                <div class="training-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>AI Systems Engineering</h3>
+                                <p>A technical training program covering the design, development, and deployment of scalable AI systems.</p>
+                                <div class="training-highlights">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Understand AI system architecture and workflows</li>
+                                        <li><i class="fas fa-check-circle"></i> Build reliable, efficient, and production-ready AI solutions</li>
+                                        <li><i class="fas fa-check-circle"></i> Master MLOps and AI deployment strategies</li>
+                                        <li><i class="fas fa-check-circle"></i> Implement scalable AI infrastructure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI-Driven Business -->
+                            <div class="training-card fade-in">
+                                <div class="training-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h3>AI-Driven Business</h3>
+                                <p>A strategic program that integrates AI into core business models and operations.</p>
+                                <div class="training-highlights">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Identify AI opportunities across business functions</li>
+                                        <li><i class="fas fa-check-circle"></i> Drive efficiency, innovation, and competitive advantage</li>
+                                        <li><i class="fas fa-check-circle"></i> Develop AI business strategies and roadmaps</li>
+                                        <li><i class="fas fa-check-circle"></i> Measure ROI of AI initiatives</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Combined CTA Section at Bottom -->
+                <div class="ai-cta-section fade-in">
+                    <div class="ai-cta-content">
+                        <h2>Ready to Transform Your Business with AI?</h2>
+                        <p>Whether you're looking to implement AI products or train your team, BetaNexAI has the solutions you need to stay ahead in the AI revolution.</p>
+                        
+                        <div class="ai-cta-buttons">
+                            <a href="#" class="ai-cta-button" data-page="contact">Get AI Products Demo</a>
+                            <a href="#" class="ai-cta-button secondary" data-page="contact">Enroll in AI Training</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- AI Trainings Page - UPDATED -->
+    <section class="page-content ai-trainings-page" id="ai-trainings-page">
+        <!-- AI Trainings Hero with Gradient Background -->
+        <section class="page-hero">
+            <div class="container">
+                <div class="hero-content">
+                    <h1>AI Training Programs</h1>
+                    <p>Empower your team with cutting-edge AI skills and knowledge through our comprehensive training programs.</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="ai-products-trainings-container">
+                    <div class="section-title fade-in">
+                        <h2>AI Products & Trainings</h2>
+                        <p>Transform your business with our cutting-edge AI products and empower your team with comprehensive AI training programs.</p>
+                    </div>
+                    
+                    <!-- AI Products Section -->
+                    <div class="ai-products-section">
+                        <div class="section-title fade-in">
+                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI-Powered Products</h3>
+                        </div>
+                        
+                        <div class="ai-products-grid">
+                            <!-- AI WhatsApp Agent -->
+                            <div class="ai-product-card fade-in">
+                                <div class="ai-product-icon">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <h3>AI WhatsApp Agent</h3>
+                                <p>An intelligent AI-powered agent that automates customer communication on WhatsApp, enabling businesses to respond faster, smarter, and around the clock.</p>
+                                <div class="ai-product-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Provides instant 24/7 responses to customer inquiries</li>
+                                        <li><i class="fas fa-check-circle"></i> Automates FAQs, lead handling, bookings, and follow-ups</li>
+                                        <li><i class="fas fa-check-circle"></i> Improves customer experience while reducing manual support effort</li>
+                                        <li><i class="fas fa-check-circle"></i> Seamless integration with existing CRM systems</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Sales Generator -->
+                            <div class="ai-product-card fade-in">
+                                <div class="ai-product-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <h3>AI Sales Generator</h3>
+                                <p>A smart AI solution designed to generate, engage, and convert leads through personalized, data-driven sales interactions.</p>
+                                <div class="ai-product-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Identifies and qualifies high-potential leads automatically</li>
+                                        <li><i class="fas fa-check-circle"></i> Delivers tailored sales conversations to increase conversions</li>
+                                        <li><i class="fas fa-check-circle"></i> Helps businesses scale sales while minimizing human dependency</li>
+                                        <li><i class="fas fa-check-circle"></i> Real-time analytics and performance tracking</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Office Assistant -->
+                            <div class="ai-product-card fade-in">
+                                <div class="ai-product-icon">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <h3>AI Office Assistant</h3>
+                                <p>A virtual AI assistant built to streamline daily office operations and enhance team productivity.</p>
+                                <div class="ai-product-features">
+                                    <h4>Key Features:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Manages schedules, reminders, and routine administrative tasks</li>
+                                        <li><i class="fas fa-check-circle"></i> Organizes information and supports internal workflows</li>
+                                        <li><i class="fas fa-check-circle"></i> Saves time by allowing teams to focus on high-impact work</li>
+                                        <li><i class="fas fa-check-circle"></i> Integrates with email, calendar, and project management tools</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Trainings Section -->
+                    <div class="ai-trainings-section">
+                        <div class="section-title fade-in">
+                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI Training Programs</h3>
+                        </div>
+                        
+                        <div class="trainings-grid">
+                            <!-- Augmented Intelligence -->
+                            <div class="training-card fade-in">
+                                <div class="training-icon">
+                                    <i class="fas fa-brain"></i>
+                                </div>
+                                <h3>Augmented Intelligence</h3>
+                                <p>Training that emphasizes human–AI collaboration, enabling professionals to enhance decision-making rather than replace human judgment.</p>
+                                <div class="training-highlights">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Learn how AI supports and enhances human intelligence</li>
+                                        <li><i class="fas fa-check-circle"></i> Apply AI tools to real-world business and operational scenarios</li>
+                                        <li><i class="fas fa-check-circle"></i> Understand human-AI collaboration frameworks</li>
+                                        <li><i class="fas fa-check-circle"></i> Implement AI-assisted decision-making processes</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI Systems Engineering -->
+                            <div class="training-card fade-in">
+                                <div class="training-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <h3>AI Systems Engineering</h3>
+                                <p>A technical training program covering the design, development, and deployment of scalable AI systems.</p>
+                                <div class="training-highlights">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Understand AI system architecture and workflows</li>
+                                        <li><i class="fas fa-check-circle"></i> Build reliable, efficient, and production-ready AI solutions</li>
+                                        <li><i class="fas fa-check-circle"></i> Master MLOps and AI deployment strategies</li>
+                                        <li><i class="fas fa-check-circle"></i> Implement scalable AI infrastructure</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            
+                            <!-- AI-Driven Business -->
+                            <div class="training-card fade-in">
+                                <div class="training-icon">
+                                    <i class="fas fa-chart-pie"></i>
+                                </div>
+                                <h3>AI-Driven Business</h3>
+                                <p>A strategic program that integrates AI into core business models and operations.</p>
+                                <div class="training-highlights">
+                                    <h4>What You'll Learn:</h4>
+                                    <ul>
+                                        <li><i class="fas fa-check-circle"></i> Identify AI opportunities across business functions</li>
+                                        <li><i class="fas fa-check-circle"></i> Drive efficiency, innovation, and competitive advantage</li>
+                                        <li><i class="fas fa-check-circle"></i> Develop AI business strategies and roadmaps</li>
+                                        <li><i class="fas fa-check-circle"></i> Measure ROI of AI initiatives</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Combined CTA Section at Bottom -->
+                <div class="ai-cta-section fade-in">
+                    <div class="ai-cta-content">
+                        <h2>Ready to Transform Your Business with AI?</h2>
+                        <p>Whether you're looking to implement AI products or train your team, BetaNexAI has the solutions you need to stay ahead in the AI revolution.</p>
+                        
+                        <div class="ai-cta-buttons">
+                            <a href="#" class="ai-cta-button" data-page="contact">Get AI Products Demo</a>
+                            <a href="#" class="ai-cta-button secondary" data-page="contact">Enroll in AI Training</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Careers Page -->
+    <section class="page-content" id="careers-page">
+        <!-- Careers Hero with Video -->
+        <section class="page-hero">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="./bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Career with BetaNexAI</h1>
+                    <p>Join our team of AI innovators and help shape the future of intelligent technology solutions.</p>
+                    <a href="#career-opportunities" class="cta-button">View Opportunities</a>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2 id="career-opportunities">Join Our Team</h2>
+                    <p>We're looking for passionate individuals who want to build the future of AI. Explore our current openings and find your place in our innovative team.</p>
+                </div>
+                
+                <div class="careers-grid">
+                    <!-- AgentOps Engineer -->
+                    <div class="career-card fade-in">
+                        <div class="career-header">
+                            <div class="career-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div>
+                                <h3 class="career-title">AgentOps Engineer</h3>
+                                <p class="career-description">The AgentOps Engineer is responsible for building, deploying, and maintaining AI agents that operate in real-world production environments. This role ensures that AI agents run reliably, perform optimally, and scale efficiently across business applications.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Deploy, monitor, and optimize AI agents across various platforms and environments</li>
+                                <li><i class="fas fa-check-circle"></i> Ensure system reliability, scalability, and high performance in real-time applications</li>
+                                <li><i class="fas fa-check-circle"></i> Troubleshoot issues, implement improvements, and maintain continuous delivery pipelines</li>
+                                <li><i class="fas fa-check-circle"></i> Collaborate with cross-functional teams to integrate AI solutions into business workflows</li>
+                                <li><i class="fas fa-check-circle"></i> Track metrics and analytics to continuously improve agent efficiency and decision-making</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefits">
+                            <h4>What You Will Gain:</h4>
+                            <p>Hands-on experience managing AI agents in production, exposure to cutting-edge AI technologies and workflows, and opportunity to impact real-world business processes through AI automation.</p>
+                        </div>
+                        
+                        <a href="#" class="cta-button" data-page="contact" style="margin-top: 20px; display: inline-block;">Apply Now</a>
+                    </div>
+                    
+                    <!-- HITL Designer -->
+                    <div class="career-card fade-in">
+                        <div class="career-header">
+                            <div class="career-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3 class="career-title">HITL Designer</h3>
+                                <p class="career-description">The HITL Designer develops AI systems where human expertise and AI intelligence work together seamlessly. Your role focuses on improving AI decision quality, ensuring ethical and responsible practices, and designing workflows that maximize effectiveness.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Design human-in-the-loop workflows that combine automation with human oversight</li>
+                                <li><i class="fas fa-check-circle"></i> Develop feedback loops to continuously improve AI performance and accuracy</li>
+                                <li><i class="fas fa-check-circle"></i> Ensure transparency, usability, and ethical AI practices across systems</li>
+                                <li><i class="fas fa-check-circle"></i> Collaborate with technical, business, and product teams to align AI behavior with user goals</li>
+                                <li><i class="fas fa-check-circle"></i> Test, validate, and refine AI outputs to improve real-world application</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefits">
+                            <h4>What You Will Gain:</h4>
+                            <p>Experience in designing AI systems with human collaboration, exposure to advanced AI ethics, usability, and operational challenges, and ability to shape responsible AI solutions with tangible business impact.</p>
+                        </div>
+                        
+                        <a href="#" class="cta-button" data-page="contact" style="margin-top: 20px; display: inline-block;">Apply Now</a>
+                    </div>
+                    
+                    <!-- Agentic Workflow Developer -->
+                    <div class="career-card fade-in">
+                        <div class="career-header">
+                            <div class="career-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div>
+                                <h3 class="career-title">Agentic Workflow Developer</h3>
+                                <p class="career-description">The Agentic Workflow Developer creates intelligent, goal-driven workflows where AI agents autonomously plan, execute, and adapt tasks. This role is critical for delivering scalable AI solutions that operate independently while integrating seamlessly with existing business processes.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="responsibilities">
+                            <h4>Key Responsibilities:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Design and implement multi-step agentic workflows with clear task orchestration</li>
+                                <li><i class="fas fa-check-circle"></i> Integrate AI agents with APIs, tools, and business systems for smooth operation</li>
+                                <li><i class="fas fa-check-circle"></i> Optimize workflows for efficiency, reliability, and scalability</li>
+                                <li><i class="fas fa-check-circle"></i> Collaborate with engineering, product, and operations teams to deliver robust AI solutions</li>
+                                <li><i class="fas fa-check-circle"></i> Analyze workflow performance and iterate for continuous improvement</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="benefits">
+                            <h4>What You Will Gain:</h4>
+                            <p>Hands-on experience building autonomous AI systems, exposure to end-to-end AI workflow design and execution, and opportunity to create agent-driven solutions with measurable impact.</p>
+                        </div>
+                        
+                        <a href="#" class="cta-button" data-page="contact" style="margin-top: 20px; display: inline-block;">Apply Now</a>
+                    </div>
+                </div>
+                
+                <!-- Project Proposal Section -->
+                <div style="margin-top: 80px;">
+                    <div class="section-title fade-in">
+                        <h2>Submit Your AI Project Proposal</h2>
+                        <p>Have an AI idea, prototype, or ongoing project? Partner with BetaNexAI to bring it to life, refine it, and scale it for real-world impact.</p>
+                    </div>
+                    
+                    <div class="project-proposal-form fade-in">
+                        <h3 style="color: var(--primary-blue); margin-bottom: 30px; text-align: center;">Work With Us</h3>
+                        
+                        <div style="background-color: var(--light-blue); padding: 30px; border-radius: 10px; margin-bottom: 30px; border-left: 5px solid var(--primary-blue);">
+                            <h4 style="color: var(--primary-blue); margin-bottom: 15px;">Opportunities Include:</h4>
+                            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                                <div>
+                                    <h5><i class="fas fa-code-branch" style="color: var(--primary-blue); margin-right: 10px;"></i> Collaborative Development</h5>
+                                    <p>Collaborative development of AI products and solutions with our expert team.</p>
+                                </div>
+                                <div>
+                                    <h5><i class="fas fa-chart-line" style="color: var(--primary-blue); margin-right: 10px;"></i> Strategy & Guidance</h5>
+                                    <p>Research, strategy, and guidance on go-to-market execution for your AI projects.</p>
+                                </div>
+                                <div>
+                                    <h5><i class="fas fa-tools" style="color: var(--primary-blue); margin-right: 10px;"></i> Technical Resources</h5>
+                                    <p>Access to technical expertise, tools, and resources to accelerate project success.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <form id="projectProposalForm">
+                            <div class="form-group">
+                                <label for="proposal-name">Full Name *</label>
+                                <input type="text" id="proposal-name" class="form-control" placeholder="Enter your name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="proposal-email">Email Address *</label>
+                                <input type="email" id="proposal-email" class="form-control" placeholder="Enter your email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="proposal-organization">Organization / Company</label>
+                                <input type="text" id="proposal-organization" class="form-control" placeholder="Enter your organization name">
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="proposal-type">Project Type *</label>
+                                <select id="proposal-type" class="form-control" required>
+                                    <option value="">Select project type</option>
+                                    <option value="AI Product Idea">AI Product Idea</option>
+                                    <option value="Existing AI Prototype">Existing AI Prototype</option>
+                                    <option value="Research Project">Research Project</option>
+                                    <option value="Consultation Request">Consultation Request</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="proposal-description">Project Description *</label>
+                                <textarea id="proposal-description" class="form-control" placeholder="Describe your AI project, goals, and what you're looking to achieve" rows="6" required></textarea>
+                            </div>
+                            
+                            <button type="submit" class="submit-btn" id="proposalSubmitBtn">Submit Project Proposal</button>
+                            
+                            <!-- Loading Spinner for Proposal Form -->
+                            <div class="spinner" id="proposalSpinner"></div>
+                            
+                            <!-- Success Message for Proposal Form -->
+                            <div class="success-message" id="proposalSuccessMessage">
+                                <i class="fas fa-check-circle" style="font-size: 24px; margin-bottom: 10px;"></i>
+                                <h3>Thank You for Your Submission!</h3>
+                                <p>Your AI project proposal has been received. Our team will review it and get back to you within 3-5 business days.</p>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </section>
+
     <!-- Contact Page -->
     <section class="page-content" id="contact-page">
         <!-- Contact Hero with Video -->
@@ -1588,6 +2999,8 @@
                                 <option value="Enterprise Data Analytics">Enterprise Data Analytics</option>
                                 <option value="AI-Powered E-commerce Solutions">AI-Powered E-commerce Solutions</option>
                                 <option value="AI Strategy & Consulting">AI Strategy & Consulting</option>
+                                <option value="AI Products">AI Products</option>
+                                <option value="AI Trainings">AI Trainings</option>
                             </select>
                         </div>
                         
@@ -1660,8 +3073,8 @@
                         <li><a href="#" data-page="services">Web & Mobile Development</a></li>
                         <li><a href="#" data-page="services">ERP Solutions</a></li>
                         <li><a href="#" data-page="services">Enterprise Analytics</a></li>
-                        <li><a href="#" data-page="services">AI E-commerce</a></li>
-                        <li><a href="#" data-page="services">AI Consulting</a></li>
+                        <li><a href="#" data-page="ai-products">AI Products</a></li>
+                        <li><a href="#" data-page="ai-trainings">AI Trainings</a></li>
                     </ul>
                 </div>
                 
@@ -1672,6 +3085,8 @@
                         <li><a href="#" data-page="services">Services</a></li>
                         <li><a href="#" data-page="about">About Us</a></li>
                         <li><a href="#" data-page="industries">Industries</a></li>
+                        <li><a href="#" data-page="blogs">Blogs</a></li>
+                        <li><a href="#" data-page="careers">Careers</a></li>
                         <li><a href="#" data-page="contact">Contact</a></li>
                     </ul>
                 </div>
@@ -1720,7 +3135,9 @@
             const navLinks = document.querySelectorAll('.nav-links a[data-page]');
             const logoLink = document.querySelector('.logo-container[data-page]');
             const footerLinks = document.querySelectorAll('.footer-links a[data-page]');
-            const ctaButtons = document.querySelectorAll('.cta-button[data-page]');
+            const ctaButtons = document.querySelectorAll('.cta-button[data-page], .ai-cta-button[data-page]');
+            const blogLinks = document.querySelectorAll('.blog-read-more');
+            const backToBlogsLinks = document.querySelectorAll('.back-to-blogs');
             
             // Show a specific page and hide others
             function showPage(pageId) {
@@ -1766,6 +3183,18 @@
                 showPage(pageId);
             }
             
+            // Handle blog post link clicks
+            function handleBlogClick(e) {
+                e.preventDefault();
+                const blogPostId = this.getAttribute('data-blog-post');
+                if (blogPostId) {
+                    // For blog posts, we need a different approach
+                    // Since individual blog posts are separate sections
+                    // We'll just navigate to the blogs page for now
+                    showPage('blogs');
+                }
+            }
+            
             // Add event listeners to navigation links
             navLinks.forEach(link => {
                 link.addEventListener('click', handleNavClick);
@@ -1782,6 +3211,19 @@
             // CTA button click handlers
             ctaButtons.forEach(button => {
                 button.addEventListener('click', handleNavClick);
+            });
+            
+            // Blog post link handlers
+            blogLinks.forEach(link => {
+                link.addEventListener('click', handleBlogClick);
+            });
+            
+            // Back to blogs link handlers
+            backToBlogsLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showPage('blogs');
+                });
             });
             
             // Handle browser back/forward buttons
@@ -1818,34 +3260,36 @@
             const industryTabs = document.querySelectorAll('.industry-tab');
             const industryCards = document.querySelectorAll('.industry-card');
             
-            industryTabs.forEach(tab => {
-                tab.addEventListener('click', function() {
-                    // Remove active class from all tabs
-                    industryTabs.forEach(t => t.classList.remove('active'));
-                    
-                    // Add active class to clicked tab
-                    this.classList.add('active');
-                    
-                    const industry = this.getAttribute('data-industry');
-                    
-                    // Filter industry cards
-                    industryCards.forEach(card => {
-                        if (industry === 'all' || card.getAttribute('data-industry') === industry) {
-                            card.style.display = 'flex';
-                            setTimeout(() => {
-                                card.style.opacity = '1';
-                                card.style.transform = 'translateY(0)';
-                            }, 10);
-                        } else {
-                            card.style.opacity = '0';
-                            card.style.transform = 'translateY(20px)';
-                            setTimeout(() => {
-                                card.style.display = 'none';
-                            }, 300);
-                        }
+            if (industryTabs.length > 0) {
+                industryTabs.forEach(tab => {
+                    tab.addEventListener('click', function() {
+                        // Remove active class from all tabs
+                        industryTabs.forEach(t => t.classList.remove('active'));
+                        
+                        // Add active class to clicked tab
+                        this.classList.add('active');
+                        
+                        const industry = this.getAttribute('data-industry');
+                        
+                        // Filter industry cards
+                        industryCards.forEach(card => {
+                            if (industry === 'all' || card.getAttribute('data-industry') === industry) {
+                                card.style.display = 'flex';
+                                setTimeout(() => {
+                                    card.style.opacity = '1';
+                                    card.style.transform = 'translateY(0)';
+                                }, 10);
+                            } else {
+                                card.style.opacity = '0';
+                                card.style.transform = 'translateY(20px)';
+                                setTimeout(() => {
+                                    card.style.display = 'none';
+                                }, 300);
+                            }
+                        });
                     });
                 });
-            });
+            }
         });
         
         // Header scroll effect
@@ -1874,7 +3318,7 @@
             });
         });
         
-        // Form submission with Gmail redirect
+        // Form submission with Gmail redirect for contact form
         const contactForm = document.getElementById('contactForm');
         if (contactForm) {
             const loadingSpinner = document.getElementById('loadingSpinner');
@@ -1945,6 +3389,73 @@ This message was sent from the BetaNexAI contact form.
             });
         }
         
+        // Project Proposal Form Submission
+        const projectProposalForm = document.getElementById('projectProposalForm');
+        if (projectProposalForm) {
+            const proposalSpinner = document.getElementById('proposalSpinner');
+            const proposalSuccessMessage = document.getElementById('proposalSuccessMessage');
+            const proposalSubmitBtn = document.getElementById('proposalSubmitBtn');
+            
+            projectProposalForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Get form values
+                const name = document.getElementById('proposal-name').value;
+                const email = document.getElementById('proposal-email').value;
+                const organization = document.getElementById('proposal-organization').value;
+                const projectType = document.getElementById('proposal-type').value;
+                const description = document.getElementById('proposal-description').value;
+                
+                // Show loading spinner and disable submit button
+                proposalSpinner.classList.add('show');
+                proposalSubmitBtn.disabled = true;
+                proposalSubmitBtn.textContent = 'Submitting...';
+                
+                // Prepare email content for project proposal
+                const emailSubject = `AI Project Proposal from ${name}`;
+                
+                const emailBody = `New AI Project Proposal Submission
+
+Name: ${name}
+Email: ${email}
+Organization: ${organization || 'Not provided'}
+Project Type: ${projectType}
+Description: ${description}
+
+---
+This project proposal was submitted from the BetaNexAI careers page.
+                `;
+                
+                // Create Gmail mailto link with pre-filled content
+                const recipientEmail = "info@betanexai.com";
+                const gmailLink = `https://mail.google.com/mail/?view=cm&fs=1&to=${encodeURIComponent(recipientEmail)}&su=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+                
+                // Show success message
+                proposalSuccessMessage.classList.add('show');
+                
+                // Open Gmail in new tab after a short delay
+                setTimeout(() => {
+                    window.open(gmailLink, '_blank');
+                    
+                    // Reset the form
+                    projectProposalForm.reset();
+                    
+                    // Hide success message after 8 seconds
+                    setTimeout(() => {
+                        proposalSuccessMessage.classList.remove('show');
+                    }, 8000);
+                    
+                }, 1500);
+                
+                // Re-enable submit button after 2 seconds
+                setTimeout(() => {
+                    proposalSpinner.classList.remove('show');
+                    proposalSubmitBtn.disabled = false;
+                    proposalSubmitBtn.textContent = 'Submit Project Proposal';
+                }, 2000);
+            });
+        }
+        
         // Fade-in animation on scroll
         const fadeElements = document.querySelectorAll('.fade-in');
         
@@ -1964,8 +3475,8 @@ This message was sent from the BetaNexAI contact form.
         // Check on scroll
         window.addEventListener('scroll', fadeInOnScroll);
         
-        // Add some interactive effects to service cards
-        document.querySelectorAll('.service-card, .industry-card, .stat-card').forEach(card => {
+        // Add some interactive effects to cards
+        document.querySelectorAll('.service-card, .industry-card, .stat-card, .blog-card, .ai-product-card, .training-card, .career-card').forEach(card => {
             card.addEventListener('mouseenter', function() {
                 this.style.transform = 'translateY(-10px)';
             });
@@ -1989,7 +3500,7 @@ This message was sent from the BetaNexAI contact form.
             });
         });
         
-        // Add CSS for industry tabs
+        // Add CSS for industry tabs and highlighted navigation buttons
         const style = document.createElement('style');
         style.textContent = `
             .industry-tabs {
