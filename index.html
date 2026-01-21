@@ -163,7 +163,7 @@
             display: block;
         }
 
-        /* Hero Section with Video Background - NO BLUE OVERLAY */
+        /* Hero Section with Video Background */
         .hero {
             color: var(--white);
             padding: 150px 0 80px;
@@ -239,7 +239,7 @@
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
         }
 
-        /* Page Hero Sections - Updated to use video WITHOUT blue overlay */
+        /* Page Hero Sections */
         .page-hero {
             color: var(--white);
             padding: 180px 0 100px;
@@ -555,100 +555,115 @@
             font-size: 14px;
         }
 
-        /* AI Products Page Styles - UPDATED */
-        .ai-products-page .page-hero,
-        .ai-trainings-page .page-hero {
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
-            height: 50vh;
-            min-height: 400px;
-            max-height: 500px;
+        /* AI Products Page Styles */
+        .ai-products-page .page-hero {
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0077cc 30%, #0099ff 100%);
+            height: 60vh;
+            min-height: 450px;
+            max-height: 600px;
         }
 
-        .ai-products-page .video-background,
-        .ai-trainings-page .video-background {
+        .ai-products-page .page-hero .video-background {
             display: none;
         }
 
-        .ai-products-trainings-container {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .ai-products-trainings-container .section-title {
-            grid-column: 1 / -1;
-            margin-bottom: 40px;
+        .ai-products-page .section-title h2 {
+            color: var(--primary-blue);
         }
 
         .ai-products-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+            margin-bottom: 60px;
         }
 
         .ai-product-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px;
+            border-radius: 15px;
+            padding: 40px 30px;
             text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--medium-gray);
+            border: 2px solid var(--light-blue);
             display: flex;
             flex-direction: column;
             height: 100%;
             position: relative;
+            overflow: hidden;
+        }
+
+        .ai-product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-blue), #0099ff);
         }
 
         .ai-product-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
+            border-color: var(--primary-blue);
         }
 
         .ai-product-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--light-blue);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, var(--light-blue) 0%, #c2e0ff 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
             color: var(--primary-blue);
-            font-size: 36px;
+            font-size: 42px;
             transition: var(--transition);
+            border: 3px solid white;
+            box-shadow: 0 10px 20px rgba(0, 102, 204, 0.1);
         }
 
         .ai-product-card:hover .ai-product-icon {
-            background-color: var(--primary-blue);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, #0099ff 100%);
             color: var(--white);
+            transform: scale(1.1);
         }
 
         .ai-product-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            margin-bottom: 20px;
             color: var(--text-color);
         }
 
         .ai-product-card p {
             color: var(--dark-gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-grow: 1;
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         .ai-product-features {
             background-color: var(--light-gray);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
             border-left: 4px solid var(--primary-blue);
             text-align: left;
         }
 
         .ai-product-features h4 {
             color: var(--primary-blue);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .ai-product-features h4 i {
             font-size: 18px;
         }
 
@@ -658,87 +673,132 @@
         }
 
         .ai-product-features li {
-            padding: 8px 0;
+            padding: 12px 0;
             display: flex;
             align-items: flex-start;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .ai-product-features li:last-child {
+            border-bottom: none;
         }
 
         .ai-product-features i {
             color: var(--primary-blue);
-            margin-right: 10px;
+            margin-right: 12px;
             margin-top: 3px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
-        /* AI Trainings Page Styles - UPDATED */
+        /* AI Trainings Page Styles */
+        .ai-trainings-page .page-hero {
+            background: linear-gradient(135deg, #0099ff 0%, var(--primary-blue) 70%, var(--dark-blue) 100%);
+            height: 60vh;
+            min-height: 450px;
+            max-height: 600px;
+        }
+
+        .ai-trainings-page .page-hero .video-background {
+            display: none;
+        }
+
+        .ai-trainings-page .section-title h2 {
+            color: var(--primary-blue);
+        }
+
         .trainings-grid {
             display: grid;
-            grid-template-columns: 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
             gap: 30px;
+            margin-bottom: 60px;
         }
 
         .training-card {
             background-color: var(--white);
-            border-radius: 10px;
-            padding: 30px;
+            border-radius: 15px;
+            padding: 40px 30px;
+            text-align: center;
             box-shadow: var(--shadow);
             transition: var(--transition);
-            border: 1px solid var(--medium-gray);
+            border: 2px solid var(--light-blue);
             display: flex;
             flex-direction: column;
             height: 100%;
             position: relative;
+            overflow: hidden;
+        }
+
+        .training-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #0099ff, var(--primary-blue));
         }
 
         .training-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            transform: translateY(-15px);
+            box-shadow: 0 20px 40px rgba(0, 102, 204, 0.15);
+            border-color: var(--primary-blue);
         }
 
         .training-icon {
-            width: 80px;
-            height: 80px;
-            background-color: var(--light-blue);
+            width: 90px;
+            height: 90px;
+            background: linear-gradient(135deg, #e6f2ff 0%, #c2e0ff 100%);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 25px;
+            margin: 0 auto 30px;
             color: var(--primary-blue);
-            font-size: 36px;
+            font-size: 42px;
             transition: var(--transition);
+            border: 3px solid white;
+            box-shadow: 0 10px 20px rgba(0, 102, 204, 0.1);
         }
 
         .training-card:hover .training-icon {
-            background-color: var(--primary-blue);
+            background: linear-gradient(135deg, #0099ff 0%, var(--primary-blue) 100%);
             color: var(--white);
+            transform: scale(1.1);
         }
 
         .training-card h3 {
-            font-size: 24px;
-            margin-bottom: 15px;
+            font-size: 26px;
+            margin-bottom: 20px;
             color: var(--text-color);
-            text-align: center;
         }
 
         .training-card p {
             color: var(--dark-gray);
-            margin-bottom: 20px;
+            margin-bottom: 25px;
             flex-grow: 1;
+            font-size: 16px;
+            line-height: 1.7;
         }
 
         .training-highlights {
             background-color: var(--light-gray);
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid var(--primary-blue);
+            padding: 25px;
+            border-radius: 10px;
+            margin-top: 25px;
+            border-left: 4px solid #0099ff;
             text-align: left;
         }
 
         .training-highlights h4 {
             color: var(--primary-blue);
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .training-highlights h4 i {
             font-size: 18px;
         }
 
@@ -748,16 +808,21 @@
         }
 
         .training-highlights li {
-            padding: 8px 0;
+            padding: 12px 0;
             display: flex;
             align-items: flex-start;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .training-highlights li:last-child {
+            border-bottom: none;
         }
 
         .training-highlights i {
-            color: var(--primary-blue);
-            margin-right: 10px;
+            color: #0099ff;
+            margin-right: 12px;
             margin-top: 3px;
-            font-size: 14px;
+            font-size: 16px;
         }
 
         /* Combined CTA Section for AI Products & Trainings */
@@ -768,11 +833,26 @@
             text-align: center;
             margin-top: 40px;
             border-radius: 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-cta-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
         }
 
         .ai-cta-content {
             max-width: 800px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         .ai-cta-content h2 {
@@ -798,7 +878,7 @@
             display: inline-block;
             background-color: var(--white);
             color: var(--primary-blue);
-            padding: 15px 40px;
+            padding: 18px 45px;
             font-size: 18px;
             font-weight: 600;
             text-decoration: none;
@@ -807,12 +887,34 @@
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
             border: none;
             cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .ai-cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--dark-blue) 100%);
+            z-index: -1;
+            transition: transform 0.5s ease;
+            transform: scaleX(0);
+            transform-origin: right;
+        }
+
+        .ai-cta-button:hover::before {
+            transform: scaleX(1);
+            transform-origin: left;
         }
 
         .ai-cta-button:hover {
             transform: translateY(-5px);
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
-            background-color: var(--light-blue);
+            color: var(--white);
         }
 
         .ai-cta-button.secondary {
@@ -1426,6 +1528,37 @@
             transform: translateY(0);
         }
 
+        /* Industry Tabs */
+        .industry-tabs {
+            margin-bottom: 40px;
+        }
+
+        .industry-tab {
+            background-color: var(--light-blue);
+            border: 2px solid transparent;
+            color: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 30px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin: 5px;
+            font-size: 15px;
+        }
+
+        .industry-tab:hover {
+            background-color: var(--primary-blue);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .industry-tab.active {
+            background-color: var(--primary-blue);
+            color: white;
+            border-color: var(--primary-blue);
+            box-shadow: 0 5px 15px rgba(0, 102, 204, 0.2);
+        }
+
         /* Mobile Responsiveness */
         @media (max-width: 992px) {
             .hero h1, .page-hero h1 {
@@ -1473,13 +1606,14 @@
                 grid-template-columns: 1fr;
             }
 
-            .ai-products-trainings-container {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
-
             .ai-cta-content h2 {
                 font-size: 36px;
+            }
+
+            .ai-products-page .page-hero,
+            .ai-trainings-page .page-hero {
+                height: 50vh;
+                min-height: 400px;
             }
         }
 
@@ -1594,12 +1728,6 @@
                 padding: 30px;
             }
 
-            .ai-products-page .page-hero,
-            .ai-trainings-page .page-hero {
-                height: 45vh;
-                min-height: 350px;
-            }
-
             .ai-cta-section {
                 padding: 60px 20px;
             }
@@ -1621,6 +1749,11 @@
                 width: 100%;
                 max-width: 300px;
                 text-align: center;
+            }
+
+            .industry-tab {
+                padding: 10px 20px;
+                font-size: 14px;
             }
         }
 
@@ -1691,8 +1824,8 @@
 
             .ai-products-page .page-hero,
             .ai-trainings-page .page-hero {
-                height: 40vh;
-                min-height: 300px;
+                height: 45vh;
+                min-height: 350px;
             }
 
             .ai-cta-content h2 {
@@ -1701,6 +1834,11 @@
 
             .ai-cta-content p {
                 font-size: 16px;
+            }
+
+            .industry-tab {
+                padding: 8px 16px;
+                font-size: 13px;
             }
         }
 
@@ -1757,20 +1895,12 @@
 
     <!-- Home Page -->
     <section class="page-content active" id="home-page">
-        <!-- Hero Section with Video Background - NO BLUE SHADE -->
+        <!-- Hero Section with Video Background -->
         <section class="hero" id="home">
             <video autoplay muted loop playsinline class="video-background" id="heroVideo">
-                <source src="./bg.mp4" type="video/mp4">
+                <source src="./bg1.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
-            
-            <div class="container">
-                <div class="hero-content">
-                    <h1>Intelligent Software & AI Solutions</h1>
-                    <p>Bridge the gap between traditional software and the future of artificial intelligence. We empower enterprises by integrating cutting-edge AI into the core of their operations.</p>
-                    <a href="#" class="cta-button" data-page="contact">Start Your AI Journey</a>
-                </div>
-            </div>
         </section>
 
         <!-- Services Preview Section -->
@@ -2423,7 +2553,463 @@
         </section>
     </section>
 
-    <!-- AI Products Page - UPDATED -->
+    <!-- Individual Blog Article Pages -->
+    <!-- Blog 1: Custom AI Agent Development -->
+    <section class="page-content" id="ai-agents-article">
+        <section class="page-hero">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="./bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Custom AI Agent Development</h1>
+                    <p>Powering Intelligent Automation at Scale</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="./blogimg1.jpg" alt="Custom AI Agent Development">
+                    </div>
+                    
+                    <div class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">AI Development</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> March 15, 2024</span>
+                        </div>
+                        <h1 class="blog-post-title">Custom AI Agent Development: Powering Intelligent Automation at Scale</h1>
+                    </div>
+                    
+                    <div class="blog-post-content">
+                        <p>In today's fast-paced digital landscape, businesses need more than basic automation—they need intelligent systems that can think, learn, and act independently. Custom AI Agent Development bridges this gap by delivering autonomous AI agents designed to handle complex workflows without human intervention.</p>
+                        
+                        <h2>What Are AI Agents?</h2>
+                        <p>AI agents are sophisticated software entities that perceive their environment through sensors and act upon that environment through actuators. Unlike traditional software, these agents have the ability to learn from interactions, adapt to new situations, and make decisions autonomously.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>Key Characteristics of Effective AI Agents:</h3>
+                            <ul>
+                                <li><strong>Autonomy:</strong> Operate independently without continuous human guidance</li>
+                                <li><strong>Reactivity:</strong> Respond appropriately to environmental changes</li>
+                                <li><strong>Proactiveness:</strong> Take initiative to achieve goals</li>
+                                <li><strong>Social Ability:</strong> Interact effectively with other agents and humans</li>
+                            </ul>
+                        </div>
+                        
+                        <h2>Business Applications of Custom AI Agents</h2>
+                        <p>Custom AI agents are transforming how businesses operate across various domains:</p>
+                        
+                        <h3>Customer Service & Support</h3>
+                        <p>AI-powered customer service agents can handle inquiries 24/7, provide personalized responses, and escalate complex issues to human agents when necessary. These systems typically reduce response times by 80% while improving customer satisfaction scores.</p>
+                        
+                        <h3>Sales & Lead Generation</h3>
+                        <p>Intelligent sales agents can qualify leads, schedule appointments, and even conduct initial sales conversations. By analyzing customer data and interaction patterns, these agents can identify high-value prospects and personalize outreach strategies.</p>
+                        
+                        <h3>Operational Efficiency</h3>
+                        <p>From inventory management to supply chain optimization, AI agents monitor systems, predict bottlenecks, and initiate corrective actions. One manufacturing client reduced operational costs by 35% after implementing our custom inventory management agents.</p>
+                        
+                        <h2>The Development Process</h2>
+                        <p>At BetaNexAI, we follow a structured approach to AI agent development:</p>
+                        
+                        <ol>
+                            <li><strong>Requirement Analysis:</strong> Understanding business goals and agent capabilities needed</li>
+                            <li><strong>Architecture Design:</strong> Creating the agent framework and decision-making logic</li>
+                            <li><strong>Training & Development:</strong> Building and training the agent using appropriate ML models</li>
+                            <li><strong>Testing & Validation:</strong> Ensuring reliability, accuracy, and performance</li>
+                            <li><strong>Deployment & Integration:</strong> Seamlessly integrating with existing systems</li>
+                            <li><strong>Monitoring & Optimization:</strong> Continuous improvement based on performance data</li>
+                        </ol>
+                        
+                        <h2>Technical Architecture</h2>
+                        <p>Our custom AI agents typically incorporate several key components:</p>
+                        
+                        <ul>
+                            <li><strong>Natural Language Processing:</strong> For understanding and generating human language</li>
+                            <li><strong>Machine Learning Models:</strong> For pattern recognition and decision making</li>
+                            <li><strong>Knowledge Bases:</strong> For storing and retrieving relevant information</li>
+                            <li><strong>Integration APIs:</strong> For connecting with existing business systems</li>
+                            <li><strong>Analytics Engine:</strong> For tracking performance and identifying improvement areas</li>
+                        </ul>
+                        
+                        <div class="highlight-box">
+                            <h3>Case Study: Financial Services Client</h3>
+                            <p>A leading financial institution implemented our custom AI agents for fraud detection and customer onboarding. The results:</p>
+                            <ul>
+                                <li><strong>92% reduction</strong> in fraudulent transactions</li>
+                                <li><strong>70% faster</strong> customer onboarding process</li>
+                                <li><strong>45% reduction</strong> in manual review workload</li>
+                                <li>ROI achieved within <strong>4 months</strong> of implementation</li>
+                            </ul>
+                        </div>
+                        
+                        <h2>Future Trends in AI Agent Development</h2>
+                        <p>The field of AI agents is rapidly evolving. Key trends to watch include:</p>
+                        
+                        <ul>
+                            <li><strong>Multi-agent Systems:</strong> Teams of specialized agents collaborating on complex tasks</li>
+                            <li><strong>Explainable AI:</strong> Making agent decisions transparent and understandable</li>
+                            <li><strong>Edge Computing Integration:</strong> Deploying agents closer to data sources for faster processing</li>
+                            <li><strong>Cross-platform Agents:</strong> Agents that work seamlessly across different systems and interfaces</li>
+                        </ul>
+                        
+                        <p>Custom AI agent development represents a significant leap forward in business automation. By creating intelligent systems that can understand context, make decisions, and learn from experience, businesses can achieve unprecedented levels of efficiency and innovation.</p>
+                    </div>
+                    
+                    <a href="#" class="back-to-blogs" data-page="blogs">
+                        <i class="fas fa-arrow-left"></i> Back to All Blogs
+                    </a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Blog 2: Full-Stack Development -->
+    <section class="page-content" id="full-stack-article">
+        <section class="page-hero">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="./bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1>Full-Stack Web & Mobile Development</h1>
+                    <p>Building Scalable Digital Experiences</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="./blogimg2.jpg" alt="Full-Stack Web & Mobile Development">
+                    </div>
+                    
+                    <div class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Development</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> March 10, 2024</span>
+                        </div>
+                        <h1 class="blog-post-title">Full-Stack Web & Mobile Development: Building Scalable Digital Experiences</h1>
+                    </div>
+                    
+                    <div class="blog-post-content">
+                        <p>In a digital-first world, performance, scalability, and user experience define the success of any product. Full-Stack Web & Mobile Development brings together powerful frontend design, robust backend architecture, and seamless platform integration to create comprehensive digital solutions that meet modern business needs.</p>
+                        
+                        <h2>The Full-Stack Advantage</h2>
+                        <p>Full-stack development provides end-to-end solutions, eliminating the fragmentation that often occurs when frontend and backend teams work separately. This holistic approach ensures consistency, reduces development time, and creates more maintainable systems.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>Why Choose Full-Stack Development?</h3>
+                            <ul>
+                                <li><strong>Unified Vision:</strong> Consistent design and architecture across all layers</li>
+                                <li><strong>Faster Development:</strong> Reduced coordination overhead between teams</li>
+                                <li><strong>Cost Efficiency:</strong> Optimized resource allocation and reduced project complexity</li>
+                                <li><strong>Better Performance:</strong> Optimized interactions between frontend and backend</li>
+                                <li><strong>Easier Maintenance:</strong> Comprehensive understanding of the entire system</li>
+                            </ul>
+                        </div>
+                        
+                        <h2>Our Technology Stack</h2>
+                        <p>At BetaNexAI, we carefully select technologies based on project requirements, performance needs, and long-term maintainability:</p>
+                        
+                        <h3>Frontend Technologies</h3>
+                        <p>For creating responsive, interactive user interfaces:</p>
+                        <ul>
+                            <li><strong>React.js:</strong> For dynamic web applications with complex state management</li>
+                            <li><strong>Angular:</strong> For enterprise-scale applications requiring robust architecture</li>
+                            <li><strong>Vue.js:</strong> For lightweight, flexible applications with rapid development cycles</li>
+                            <li><strong>Flutter:</strong> For cross-platform mobile applications with native performance</li>
+                            <li><strong>React Native:</strong> For mobile apps leveraging web development expertise</li>
+                        </ul>
+                        
+                        <h3>Backend Technologies</h3>
+                        <p>For building scalable, secure server-side applications:</p>
+                        <ul>
+                            <li><strong>Node.js:</strong> For real-time applications and microservices architecture</li>
+                            <li><strong>Python (Django/Flask):</strong> For data-intensive applications and AI integration</li>
+                            <li><strong>Java (Spring Boot):</strong> For enterprise applications requiring high reliability</li>
+                            <li><strong>.NET Core:</strong> For Windows-centric ecosystems and enterprise integration</li>
+                            <li><strong>Go:</strong> For high-performance systems requiring exceptional concurrency</li>
+                        </ul>
+                        
+                        <h3>Database Solutions</h3>
+                        <p>For efficient data storage and retrieval:</p>
+                        <ul>
+                            <li><strong>PostgreSQL:</strong> For complex transactional systems with ACID compliance</li>
+                            <li><strong>MongoDB:</strong> For flexible document storage and rapid development</li>
+                            <li><strong>Redis:</strong> For caching and real-time data processing</li>
+                            <li><strong>MySQL:</strong> For traditional relational database requirements</li>
+                            <li><strong>Elasticsearch:</strong> For search-intensive applications and analytics</li>
+                        </ul>
+                        
+                        <h2>Development Methodologies</h2>
+                        <p>We employ modern development practices to ensure quality and efficiency:</p>
+                        
+                        <h3>Agile Development</h3>
+                        <p>Our iterative approach allows for continuous feedback and adaptation. We work in two-week sprints with regular demos and retrospectives to ensure alignment with business goals.</p>
+                        
+                        <h3>DevOps Integration</h3>
+                        <p>Continuous integration and deployment pipelines ensure code quality and rapid delivery:</p>
+                        <ul>
+                            <li>Automated testing at multiple levels (unit, integration, end-to-end)</li>
+                            <li>Containerization with Docker for consistent environments</li>
+                            <li>Orchestration with Kubernetes for scalable deployments</li>
+                            <li>Infrastructure as Code for reproducible environments</li>
+                            <li>Comprehensive monitoring and alerting systems</li>
+                        </ul>
+                        
+                        <h2>Case Studies</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>E-commerce Platform for Retail Client</h3>
+                            <p>A major retail chain needed a scalable e-commerce solution to handle peak holiday traffic:</p>
+                            <ul>
+                                <li><strong>Stack:</strong> React frontend, Node.js backend, PostgreSQL database</li>
+                                <li><strong>Challenge:</strong> Handle 10x traffic spikes during holiday seasons</li>
+                                <li><strong>Solution:</strong> Microservices architecture with auto-scaling</li>
+                                <li><strong>Results:</strong> 99.9% uptime during peak, 40% faster page loads, 25% increase in conversions</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>Healthcare Management System</h3>
+                            <p>A healthcare provider required a secure, HIPAA-compliant patient management system:</p>
+                            <ul>
+                                <li><strong>Stack:</strong> Angular frontend, .NET Core backend, SQL Server database</li>
+                                <li><strong>Challenge:</strong> Complex compliance requirements with multiple integration points</li>
+                                <li><strong>Solution:</strong> Layered security architecture with comprehensive audit trails</li>
+                                <li><strong>Results:</strong> 60% reduction in administrative workload, improved patient satisfaction, full regulatory compliance</li>
+                            </ul>
+                        </div>
+                        
+                        <h2>Best Practices in Full-Stack Development</h2>
+                        <p>Our approach incorporates industry best practices:</p>
+                        
+                        <ul>
+                            <li><strong>Responsive Design:</strong> Ensuring optimal experience across all devices</li>
+                            <li><strong>Performance Optimization:</strong> Minimizing load times and maximizing responsiveness</li>
+                            <li><strong>Security First:</strong> Implementing security at every layer of the application</li>
+                            <li><strong>Accessibility Compliance:</strong> Ensuring applications are usable by people with disabilities</li>
+                            <li><strong>Scalable Architecture:</strong> Designing systems that can grow with business needs</li>
+                            <li><strong>Comprehensive Documentation:</strong> Maintaining clear documentation for future maintenance</li>
+                        </ul>
+                        
+                        <h2>Future Trends</h2>
+                        <p>The landscape of full-stack development continues to evolve:</p>
+                        
+                        <ul>
+                            <li><strong>Serverless Architecture:</strong> Reducing infrastructure management overhead</li>
+                            <li><strong>Progressive Web Apps (PWAs):</strong> Blurring the lines between web and mobile</li>
+                            <li><strong>AI Integration:</strong> Incorporating machine learning directly into applications</li>
+                            <li><strong>Edge Computing:</strong> Processing data closer to users for improved performance</li>
+                            <li><strong>Low-Code Platforms:</strong> Accelerating development for certain use cases</li>
+                        </ul>
+                        
+                        <p>Full-stack development represents the comprehensive approach needed in today's complex digital landscape. By mastering both frontend and backend technologies, and understanding how they interact, we create digital solutions that are not just functional, but exceptional.</p>
+                    </div>
+                    
+                    <a href="#" class="back-to-blogs" data-page="blogs">
+                        <i class="fas fa-arrow-left"></i> Back to All Blogs
+                    </a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- Blog 3: ERP Solutions -->
+    <section class="page-content" id="erp-article">
+        <section class="page-hero">
+            <video autoplay muted loop playsinline class="video-background">
+                <source src="./bg.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            
+            <div class="container">
+                <div class="hero-content">
+                    <h1>ERP Solutions</h1>
+                    <p>Unifying Business Operations with Intelligent Systems</p>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section">
+            <div class="container">
+                <div class="blog-post">
+                    <div class="blog-post-image">
+                        <img src="./blogimg3.jpg" alt="ERP Solutions">
+                    </div>
+                    
+                    <div class="blog-post-header">
+                        <div class="blog-post-meta">
+                            <span class="blog-post-category">Business Solutions</span>
+                            <span class="blog-date"><i class="far fa-calendar"></i> March 5, 2024</span>
+                        </div>
+                        <h1 class="blog-post-title">ERP Solutions: Unifying Business Operations with Intelligent Systems</h1>
+                    </div>
+                    
+                    <div class="blog-post-content">
+                        <p>As organizations grow, disconnected systems and data silos become major barriers to efficiency and informed decision-making. ERP (Enterprise Resource Planning) Solutions address this challenge by bringing all core business functions into one centralized platform, providing a "single source of truth" for your entire organization.</p>
+                        
+                        <h2>The Modern ERP Landscape</h2>
+                        <p>Today's ERP systems have evolved far beyond their accounting origins. Modern ERP solutions integrate finance, human resources, supply chain, manufacturing, services, procurement, and more into a unified system that provides real-time visibility across the entire organization.</p>
+                        
+                        <div class="highlight-box">
+                            <h3>Key Benefits of Modern ERP Systems:</h3>
+                            <ul>
+                                <li><strong>Integrated Business Processes:</strong> Eliminate data silos and streamline operations</li>
+                                <li><strong>Real-time Analytics:</strong> Make data-driven decisions with up-to-date information</li>
+                                <li><strong>Improved Efficiency:</strong> Automate routine tasks and reduce manual work</li>
+                                <li><strong>Enhanced Compliance:</strong> Maintain regulatory compliance with built-in controls</li>
+                                <li><strong>Scalability:</strong> Grow your business without outgrowing your systems</li>
+                                <li><strong>Better Collaboration:</strong> Connect departments and improve communication</li>
+                            </ul>
+                        </div>
+                        
+                        <h2>Core ERP Modules</h2>
+                        <p>A comprehensive ERP system typically includes these essential modules:</p>
+                        
+                        <h3>Financial Management</h3>
+                        <p>The financial module forms the backbone of any ERP system, providing:</p>
+                        <ul>
+                            <li>General ledger and accounting</li>
+                            <li>Accounts payable and receivable</li>
+                            <li>Budgeting and forecasting</li>
+                            <li>Asset management</li>
+                            <li>Financial reporting and compliance</li>
+                            <li>Tax management</li>
+                        </ul>
+                        
+                        <h3>Supply Chain Management</h3>
+                        <p>Optimizing the flow of goods from supplier to customer:</p>
+                        <ul>
+                            <li>Inventory management and optimization</li>
+                            <li>Procurement and supplier management</li>
+                            <li>Order management and fulfillment</li>
+                            <li>Warehouse management</li>
+                            <li>Logistics and transportation</li>
+                            <li>Demand planning and forecasting</li>
+                        </ul>
+                        
+                        <h3>Human Resources Management</h3>
+                        <p>Managing the organization's most valuable asset—its people:</p>
+                        <ul>
+                            <li>Employee database and records</li>
+                            <li>Payroll processing and management</li>
+                            <li>Benefits administration</li>
+                            <li>Recruitment and onboarding</li>
+                            <li>Performance management</li>
+                            <li>Training and development</li>
+                        </ul>
+                        
+                        <h3>Manufacturing & Production</h3>
+                        <p>For organizations involved in manufacturing:</p>
+                        <ul>
+                            <li>Bill of materials (BOM) management</li>
+                            <li>Production planning and scheduling</li>
+                            <li>Quality control and assurance</li>
+                            <li>Shop floor control</li>
+                            <li>Maintenance management</li>
+                            <li>Costing and profitability analysis</li>
+                        </ul>
+                        
+                        <h3>Customer Relationship Management (CRM)</h3>
+                        <p>Integrated CRM capabilities for comprehensive customer management:</p>
+                        <ul>
+                            <li>Lead and opportunity management</li>
+                            <li>Sales forecasting and pipeline management</li>
+                            <li>Customer service and support</li>
+                            <li>Marketing automation</li>
+                            <li>Customer analytics and segmentation</li>
+                        </ul>
+                        
+                        <h2>The Implementation Process</h2>
+                        <p>Successful ERP implementation requires careful planning and execution:</p>
+                        
+                        <ol>
+                            <li><strong>Discovery & Planning:</strong> Understanding business requirements and defining project scope</li>
+                            <li><strong>System Design:</strong> Configuring the ERP system to match business processes</li>
+                            <li><strong>Development:</strong> Customizing and extending the system as needed</li>
+                            <li><strong>Testing:</strong> Validating functionality, performance, and integration</li>
+                            <li><strong>Training:</strong> Preparing users for the new system</li>
+                            <li><strong>Deployment:</strong> Going live with the new system</li>
+                            <li><strong>Support & Optimization:</strong> Ongoing maintenance and continuous improvement</li>
+                        </ol>
+                        
+                        <h2>Case Studies</h2>
+                        
+                        <div class="highlight-box">
+                            <h3>Manufacturing Company Transformation</h3>
+                            <p>A mid-sized manufacturer was struggling with disconnected systems and manual processes:</p>
+                            <ul>
+                                <li><strong>Challenge:</strong> 15 different systems, manual data entry, 48-hour reporting cycles</li>
+                                <li><strong>Solution:</strong> Custom ERP implementation integrating all operations</li>
+                                <li><strong>Results:</strong> 40% reduction in inventory costs, 60% faster reporting, 25% increase in on-time deliveries</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="highlight-box">
+                            <h3>Healthcare Services Provider</h3>
+                            <p>A healthcare services company needed to improve operational efficiency and compliance:</p>
+                            <ul>
+                                <li><strong>Challenge:</strong> Complex regulatory requirements, inefficient billing processes</li>
+                                <li><strong>Solution:</strong> Industry-specific ERP with built-in compliance features</li>
+                                <li><strong>Results:</strong> 70% faster billing cycles, improved compliance audit scores, 30% reduction in administrative costs</li>
+                            </ul>
+                        </div>
+                        
+                        <h2>Technology Considerations</h2>
+                        <p>Modern ERP systems leverage several key technologies:</p>
+                        
+                        <ul>
+                            <li><strong>Cloud Deployment:</strong> For scalability, accessibility, and reduced infrastructure costs</li>
+                            <li><strong>Mobile Access:</strong> For real-time information access from anywhere</li>
+                            <li><strong>AI & Machine Learning:</strong> For predictive analytics and intelligent automation</li>
+                            <li><strong>IoT Integration:</strong> For real-time monitoring of equipment and assets</li>
+                            <li><strong>Blockchain:</strong> For secure, transparent transactions and supply chain tracking</li>
+                        </ul>
+                        
+                        <h2>Choosing the Right ERP Solution</h2>
+                        <p>Selecting an ERP system requires careful consideration of several factors:</p>
+                        
+                        <ul>
+                            <li><strong>Business Requirements:</strong> What specific problems need to be solved?</li>
+                            <li><strong>Scalability:</strong> Can the system grow with your business?</li>
+                            <li><strong>Integration Capabilities:</strong> How well does it integrate with existing systems?</li>
+                            <li><strong>Total Cost of Ownership:</strong> Consider implementation, licensing, and maintenance costs</li>
+                            <li><strong>Vendor Support:</strong> Quality of vendor support and implementation partners</li>
+                            <li><strong>Industry Specificity:</strong> Does the system understand your industry's unique needs?</li>
+                        </ul>
+                        
+                        <h2>Future Trends in ERP</h2>
+                        <p>The ERP landscape continues to evolve with emerging technologies:</p>
+                        
+                        <ul>
+                            <li><strong>AI-Powered ERP:</strong> Intelligent automation and predictive capabilities</li>
+                            <li><strong>Personalized User Experiences:</strong> Role-based interfaces and mobile optimization</li>
+                            <li><strong>Enhanced Analytics:</strong> Real-time dashboards and advanced reporting</li>
+                            <li><strong>Extended Ecosystems:</strong> Integration with specialized best-of-breed applications</li>
+                            <li><strong>Low-Code Customization:</strong> Business-user-friendly configuration tools</li>
+                        </ul>
+                        
+                        <p>ERP systems have evolved from back-office accounting tools to strategic platforms that drive business transformation. By implementing the right ERP solution, organizations can break down silos, gain real-time visibility, and make data-driven decisions that drive growth and competitive advantage.</p>
+                    </div>
+                    
+                    <a href="#" class="back-to-blogs" data-page="blogs">
+                        <i class="fas fa-arrow-left"></i> Back to All Blogs
+                    </a>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <!-- AI Products Page -->
     <section class="page-content ai-products-page" id="ai-products-page">
         <!-- AI Products Hero with Gradient Background -->
         <section class="page-hero">
@@ -2431,141 +3017,100 @@
                 <div class="hero-content">
                     <h1>AI-Powered Products</h1>
                     <p>Designed to Accelerate Your Business Growth with Intelligent Automation</p>
+                    <a href="#ai-products-grid" class="cta-button">Explore AI Products</a>
                 </div>
             </div>
         </section>
         
         <section class="section">
             <div class="container">
-                <div class="ai-products-trainings-container">
-                    <div class="section-title fade-in">
-                        <h2>AI Products & Trainings</h2>
-                        <p>Transform your business with our cutting-edge AI products and empower your team with comprehensive AI training programs.</p>
-                    </div>
-                    
-                    <!-- AI Products Section -->
-                    <div class="ai-products-section">
-                        <div class="section-title fade-in">
-                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI-Powered Products</h3>
+                <div class="section-title fade-in">
+                    <h2>Our AI Products & Solutions</h2>
+                    <p>Transform your business operations with our cutting-edge AI products designed to automate, optimize, and scale your workflows.</p>
+                </div>
+                
+                <div class="ai-products-grid" id="ai-products-grid">
+                    <!-- AI WhatsApp Agent -->
+                    <div class="ai-product-card fade-in">
+                        <div class="ai-product-icon">
+                            <i class="fab fa-whatsapp"></i>
                         </div>
-                        
-                        <div class="ai-products-grid">
-                            <!-- AI WhatsApp Agent -->
-                            <div class="ai-product-card fade-in">
-                                <div class="ai-product-icon">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <h3>AI WhatsApp Agent</h3>
-                                <p>An intelligent AI-powered agent that automates customer communication on WhatsApp, enabling businesses to respond faster, smarter, and around the clock.</p>
-                                <div class="ai-product-features">
-                                    <h4>Key Features:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Provides instant 24/7 responses to customer inquiries</li>
-                                        <li><i class="fas fa-check-circle"></i> Automates FAQs, lead handling, bookings, and follow-ups</li>
-                                        <li><i class="fas fa-check-circle"></i> Improves customer experience while reducing manual support effort</li>
-                                        <li><i class="fas fa-check-circle"></i> Seamless integration with existing CRM systems</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Sales Generator -->
-                            <div class="ai-product-card fade-in">
-                                <div class="ai-product-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h3>AI Sales Generator</h3>
-                                <p>A smart AI solution designed to generate, engage, and convert leads through personalized, data-driven sales interactions.</p>
-                                <div class="ai-product-features">
-                                    <h4>Key Features:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Identifies and qualifies high-potential leads automatically</li>
-                                        <li><i class="fas fa-check-circle"></i> Delivers tailored sales conversations to increase conversions</li>
-                                        <li><i class="fas fa-check-circle"></i> Helps businesses scale sales while minimizing human dependency</li>
-                                        <li><i class="fas fa-check-circle"></i> Real-time analytics and performance tracking</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Office Assistant -->
-                            <div class="ai-product-card fade-in">
-                                <div class="ai-product-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <h3>AI Office Assistant</h3>
-                                <p>A virtual AI assistant built to streamline daily office operations and enhance team productivity.</p>
-                                <div class="ai-product-features">
-                                    <h4>Key Features:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Manages schedules, reminders, and routine administrative tasks</li>
-                                        <li><i class="fas fa-check-circle"></i> Organizes information and supports internal workflows</li>
-                                        <li><i class="fas fa-check-circle"></i> Saves time by allowing teams to focus on high-impact work</li>
-                                        <li><i class="fas fa-check-circle"></i> Integrates with email, calendar, and project management tools</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <h3>AI WhatsApp Agent</h3>
+                        <p>An intelligent AI-powered agent that automates customer communication on WhatsApp, enabling businesses to respond faster, smarter, and around the clock. Our AI WhatsApp Agent understands natural language, handles inquiries, books appointments, sends reminders, and provides personalized support—all while maintaining human-like conversation quality.</p>
+                        <div class="ai-product-features">
+                            <h4><i class="fas fa-star"></i> Key Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>24/7 Instant Responses:</strong> Provides immediate answers to customer inquiries anytime</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Smart Automation:</strong> Handles FAQs, lead qualification, bookings, and follow-ups automatically</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>CRM Integration:</strong> Seamlessly connects with existing CRM systems for unified customer management</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Multilingual Support:</strong> Communicates in multiple languages with cultural context awareness</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Analytics Dashboard:</strong> Tracks performance metrics, customer satisfaction, and conversion rates</li>
+                            </ul>
+                        </div>
+                        <div class="ai-product-features" style="margin-top: 15px; background-color: #f0f8ff;">
+                            <h4><i class="fas fa-chart-line"></i> Business Impact:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Reduces response time by 85%</li>
+                                <li><i class="fas fa-check-circle"></i> Increases lead conversion by 40%</li>
+                                <li><i class="fas fa-check-circle"></i> Cuts customer support costs by 60%</li>
+                                <li><i class="fas fa-check-circle"></i> Improves customer satisfaction scores by 35%</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <!-- AI Trainings Section -->
-                    <div class="ai-trainings-section">
-                        <div class="section-title fade-in">
-                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI Training Programs</h3>
+                    <!-- AI Sales Generator -->
+                    <div class="ai-product-card fade-in">
+                        <div class="ai-product-icon">
+                            <i class="fas fa-chart-line"></i>
                         </div>
-                        
-                        <div class="trainings-grid">
-                            <!-- Augmented Intelligence -->
-                            <div class="training-card fade-in">
-                                <div class="training-icon">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                <h3>Augmented Intelligence</h3>
-                                <p>Training that emphasizes human–AI collaboration, enabling professionals to enhance decision-making rather than replace human judgment.</p>
-                                <div class="training-highlights">
-                                    <h4>What You'll Learn:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Learn how AI supports and enhances human intelligence</li>
-                                        <li><i class="fas fa-check-circle"></i> Apply AI tools to real-world business and operational scenarios</li>
-                                        <li><i class="fas fa-check-circle"></i> Understand human-AI collaboration frameworks</li>
-                                        <li><i class="fas fa-check-circle"></i> Implement AI-assisted decision-making processes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Systems Engineering -->
-                            <div class="training-card fade-in">
-                                <div class="training-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <h3>AI Systems Engineering</h3>
-                                <p>A technical training program covering the design, development, and deployment of scalable AI systems.</p>
-                                <div class="training-highlights">
-                                    <h4>What You'll Learn:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Understand AI system architecture and workflows</li>
-                                        <li><i class="fas fa-check-circle"></i> Build reliable, efficient, and production-ready AI solutions</li>
-                                        <li><i class="fas fa-check-circle"></i> Master MLOps and AI deployment strategies</li>
-                                        <li><i class="fas fa-check-circle"></i> Implement scalable AI infrastructure</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI-Driven Business -->
-                            <div class="training-card fade-in">
-                                <div class="training-icon">
-                                    <i class="fas fa-chart-pie"></i>
-                                </div>
-                                <h3>AI-Driven Business</h3>
-                                <p>A strategic program that integrates AI into core business models and operations.</p>
-                                <div class="training-highlights">
-                                    <h4>What You'll Learn:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Identify AI opportunities across business functions</li>
-                                        <li><i class="fas fa-check-circle"></i> Drive efficiency, innovation, and competitive advantage</li>
-                                        <li><i class="fas fa-check-circle"></i> Develop AI business strategies and roadmaps</li>
-                                        <li><i class="fas fa-check-circle"></i> Measure ROI of AI initiatives</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <h3>AI Sales Generator</h3>
+                        <p>A smart AI solution designed to generate, engage, and convert leads through personalized, data-driven sales interactions. The AI Sales Generator identifies high-potential prospects, initiates meaningful conversations, nurtures relationships, and closes deals—transforming how sales teams operate and scale revenue generation.</p>
+                        <div class="ai-product-features">
+                            <h4><i class="fas fa-star"></i> Key Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>Intelligent Lead Scoring:</strong> Identifies and prioritizes high-value prospects using predictive analytics</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Personalized Outreach:</strong> Creates tailored sales messages based on prospect behavior and preferences</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Conversation Intelligence:</strong> Analyzes sales conversations to optimize pitch and objection handling</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Pipeline Management:</strong> Automatically tracks deals through the sales funnel with smart forecasting</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Performance Optimization:</strong> Continuously learns from successful interactions to improve conversion rates</li>
+                            </ul>
+                        </div>
+                        <div class="ai-product-features" style="margin-top: 15px; background-color: #f0f8ff;">
+                            <h4><i class="fas fa-chart-line"></i> Business Impact:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Increases sales productivity by 70%</li>
+                                <li><i class="fas fa-check-circle"></i> Reduces lead response time from hours to seconds</li>
+                                <li><i class="fas fa-check-circle"></i> Boosts conversion rates by 45%</li>
+                                <li><i class="fas fa-check-circle"></i> Improves sales forecasting accuracy by 80%</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- AI Office Assistant -->
+                    <div class="ai-product-card fade-in">
+                        <div class="ai-product-icon">
+                            <i class="fas fa-briefcase"></i>
+                        </div>
+                        <h3>AI Office Assistant</h3>
+                        <p>A virtual AI assistant built to streamline daily office operations and enhance team productivity. The AI Office Assistant manages schedules, coordinates meetings, organizes information, automates repetitive tasks, and provides intelligent reminders—acting as a digital co-worker that never sleeps.</p>
+                        <div class="ai-product-features">
+                            <h4><i class="fas fa-star"></i> Key Features:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>Smart Scheduling:</strong> Coordinates meetings, manages calendars, and resolves scheduling conflicts</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Task Automation:</strong> Automates routine administrative tasks like data entry, reporting, and follow-ups</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Information Management:</strong> Organizes documents, emails, and files with intelligent categorization</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Workflow Optimization:</strong> Streamlines internal processes and identifies efficiency bottlenecks</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Team Coordination:</strong> Facilitates collaboration by connecting team members and tracking project progress</li>
+                            </ul>
+                        </div>
+                        <div class="ai-product-features" style="margin-top: 15px; background-color: #f0f8ff;">
+                            <h4><i class="fas fa-chart-line"></i> Business Impact:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> Saves 15+ hours per employee weekly</li>
+                                <li><i class="fas fa-check-circle"></i> Reduces administrative costs by 50%</li>
+                                <li><i class="fas fa-check-circle"></i> Improves meeting efficiency by 65%</li>
+                                <li><i class="fas fa-check-circle"></i> Enhances team collaboration and reduces missed deadlines</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -2573,12 +3118,12 @@
                 <!-- Combined CTA Section at Bottom -->
                 <div class="ai-cta-section fade-in">
                     <div class="ai-cta-content">
-                        <h2>Ready to Transform Your Business with AI?</h2>
-                        <p>Whether you're looking to implement AI products or train your team, BetaNexAI has the solutions you need to stay ahead in the AI revolution.</p>
+                        <h2>Ready to Transform Your Business with AI Products?</h2>
+                        <p>Schedule a personalized demo to see how our AI products can automate your workflows, boost productivity, and drive growth.</p>
                         
                         <div class="ai-cta-buttons">
-                            <a href="#" class="ai-cta-button" data-page="contact">Get AI Products Demo</a>
-                            <a href="#" class="ai-cta-button secondary" data-page="contact">Enroll in AI Training</a>
+                            <a href="#" class="ai-cta-button" data-page="contact">Schedule AI Products Demo</a>
+                            <a href="#" class="ai-cta-button secondary" data-page="ai-trainings">Explore AI Training Programs</a>
                         </div>
                     </div>
                 </div>
@@ -2586,7 +3131,7 @@
         </section>
     </section>
 
-    <!-- AI Trainings Page - UPDATED -->
+    <!-- AI Trainings Page -->
     <section class="page-content ai-trainings-page" id="ai-trainings-page">
         <!-- AI Trainings Hero with Gradient Background -->
         <section class="page-hero">
@@ -2594,141 +3139,100 @@
                 <div class="hero-content">
                     <h1>AI Training Programs</h1>
                     <p>Empower your team with cutting-edge AI skills and knowledge through our comprehensive training programs.</p>
+                    <a href="#trainings-grid" class="cta-button">Explore Trainings</a>
                 </div>
             </div>
         </section>
         
         <section class="section">
             <div class="container">
-                <div class="ai-products-trainings-container">
-                    <div class="section-title fade-in">
-                        <h2>AI Products & Trainings</h2>
-                        <p>Transform your business with our cutting-edge AI products and empower your team with comprehensive AI training programs.</p>
-                    </div>
-                    
-                    <!-- AI Products Section -->
-                    <div class="ai-products-section">
-                        <div class="section-title fade-in">
-                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI-Powered Products</h3>
+                <div class="section-title fade-in">
+                    <h2>Our AI Training Programs</h2>
+                    <p>Designed for professionals at all levels, our training programs provide practical skills and strategic insights for AI implementation.</p>
+                </div>
+                
+                <div class="trainings-grid" id="trainings-grid">
+                    <!-- Augmented Intelligence -->
+                    <div class="training-card fade-in">
+                        <div class="training-icon">
+                            <i class="fas fa-brain"></i>
                         </div>
-                        
-                        <div class="ai-products-grid">
-                            <!-- AI WhatsApp Agent -->
-                            <div class="ai-product-card fade-in">
-                                <div class="ai-product-icon">
-                                    <i class="fab fa-whatsapp"></i>
-                                </div>
-                                <h3>AI WhatsApp Agent</h3>
-                                <p>An intelligent AI-powered agent that automates customer communication on WhatsApp, enabling businesses to respond faster, smarter, and around the clock.</p>
-                                <div class="ai-product-features">
-                                    <h4>Key Features:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Provides instant 24/7 responses to customer inquiries</li>
-                                        <li><i class="fas fa-check-circle"></i> Automates FAQs, lead handling, bookings, and follow-ups</li>
-                                        <li><i class="fas fa-check-circle"></i> Improves customer experience while reducing manual support effort</li>
-                                        <li><i class="fas fa-check-circle"></i> Seamless integration with existing CRM systems</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Sales Generator -->
-                            <div class="ai-product-card fade-in">
-                                <div class="ai-product-icon">
-                                    <i class="fas fa-chart-line"></i>
-                                </div>
-                                <h3>AI Sales Generator</h3>
-                                <p>A smart AI solution designed to generate, engage, and convert leads through personalized, data-driven sales interactions.</p>
-                                <div class="ai-product-features">
-                                    <h4>Key Features:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Identifies and qualifies high-potential leads automatically</li>
-                                        <li><i class="fas fa-check-circle"></i> Delivers tailored sales conversations to increase conversions</li>
-                                        <li><i class="fas fa-check-circle"></i> Helps businesses scale sales while minimizing human dependency</li>
-                                        <li><i class="fas fa-check-circle"></i> Real-time analytics and performance tracking</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Office Assistant -->
-                            <div class="ai-product-card fade-in">
-                                <div class="ai-product-icon">
-                                    <i class="fas fa-briefcase"></i>
-                                </div>
-                                <h3>AI Office Assistant</h3>
-                                <p>A virtual AI assistant built to streamline daily office operations and enhance team productivity.</p>
-                                <div class="ai-product-features">
-                                    <h4>Key Features:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Manages schedules, reminders, and routine administrative tasks</li>
-                                        <li><i class="fas fa-check-circle"></i> Organizes information and supports internal workflows</li>
-                                        <li><i class="fas fa-check-circle"></i> Saves time by allowing teams to focus on high-impact work</li>
-                                        <li><i class="fas fa-check-circle"></i> Integrates with email, calendar, and project management tools</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <h3>Augmented Intelligence</h3>
+                        <p>This training program focuses on human-AI collaboration, teaching professionals how to leverage AI to enhance human capabilities rather than replace them. Learn to design systems where AI supports decision-making, automates routine tasks, and amplifies human expertise across various business functions.</p>
+                        <div class="training-highlights">
+                            <h4><i class="fas fa-graduation-cap"></i> What You'll Learn:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>Human-AI Collaboration Frameworks:</strong> Design systems that combine human judgment with AI capabilities</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>AI-Assisted Decision Making:</strong> Implement AI tools that support rather than replace human decisions</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Ethical AI Implementation:</strong> Ensure responsible and transparent AI systems in business contexts</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Workflow Integration:</strong> Seamlessly integrate AI tools into existing business processes</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Performance Measurement:</strong> Track and optimize human-AI collaboration effectiveness</li>
+                            </ul>
+                        </div>
+                        <div class="training-highlights" style="margin-top: 15px; background-color: #f0f8ff; border-left-color: #0099ff;">
+                            <h4><i class="fas fa-certificate"></i> Program Details:</h4>
+                            <ul>
+                                <li><i class="fas fa-clock"></i> Duration: 6 weeks (part-time)</li>
+                                <li><i class="fas fa-users"></i> Format: Live sessions + hands-on projects</li>
+                                <li><i class="fas fa-level-up-alt"></i> Level: Intermediate to Advanced</li>
+                                <li><i class="fas fa-certificate"></i> Certification: BetaNexAI Augmented Intelligence Professional</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <!-- AI Trainings Section -->
-                    <div class="ai-trainings-section">
-                        <div class="section-title fade-in">
-                            <h3 style="color: var(--primary-blue); margin-bottom: 30px;">Our AI Training Programs</h3>
+                    <!-- AI Systems Engineering -->
+                    <div class="training-card fade-in">
+                        <div class="training-icon">
+                            <i class="fas fa-cogs"></i>
                         </div>
-                        
-                        <div class="trainings-grid">
-                            <!-- Augmented Intelligence -->
-                            <div class="training-card fade-in">
-                                <div class="training-icon">
-                                    <i class="fas fa-brain"></i>
-                                </div>
-                                <h3>Augmented Intelligence</h3>
-                                <p>Training that emphasizes human–AI collaboration, enabling professionals to enhance decision-making rather than replace human judgment.</p>
-                                <div class="training-highlights">
-                                    <h4>What You'll Learn:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Learn how AI supports and enhances human intelligence</li>
-                                        <li><i class="fas fa-check-circle"></i> Apply AI tools to real-world business and operational scenarios</li>
-                                        <li><i class="fas fa-check-circle"></i> Understand human-AI collaboration frameworks</li>
-                                        <li><i class="fas fa-check-circle"></i> Implement AI-assisted decision-making processes</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI Systems Engineering -->
-                            <div class="training-card fade-in">
-                                <div class="training-icon">
-                                    <i class="fas fa-cogs"></i>
-                                </div>
-                                <h3>AI Systems Engineering</h3>
-                                <p>A technical training program covering the design, development, and deployment of scalable AI systems.</p>
-                                <div class="training-highlights">
-                                    <h4>What You'll Learn:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Understand AI system architecture and workflows</li>
-                                        <li><i class="fas fa-check-circle"></i> Build reliable, efficient, and production-ready AI solutions</li>
-                                        <li><i class="fas fa-check-circle"></i> Master MLOps and AI deployment strategies</li>
-                                        <li><i class="fas fa-check-circle"></i> Implement scalable AI infrastructure</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <!-- AI-Driven Business -->
-                            <div class="training-card fade-in">
-                                <div class="training-icon">
-                                    <i class="fas fa-chart-pie"></i>
-                                </div>
-                                <h3>AI-Driven Business</h3>
-                                <p>A strategic program that integrates AI into core business models and operations.</p>
-                                <div class="training-highlights">
-                                    <h4>What You'll Learn:</h4>
-                                    <ul>
-                                        <li><i class="fas fa-check-circle"></i> Identify AI opportunities across business functions</li>
-                                        <li><i class="fas fa-check-circle"></i> Drive efficiency, innovation, and competitive advantage</li>
-                                        <li><i class="fas fa-check-circle"></i> Develop AI business strategies and roadmaps</li>
-                                        <li><i class="fas fa-check-circle"></i> Measure ROI of AI initiatives</li>
-                                    </ul>
-                                </div>
-                            </div>
+                        <h3>AI Systems Engineering</h3>
+                        <p>A technical deep-dive into designing, building, and deploying scalable AI systems. This program covers everything from AI architecture design to production deployment, focusing on creating robust, efficient, and maintainable AI solutions that deliver real business value.</p>
+                        <div class="training-highlights">
+                            <h4><i class="fas fa-graduation-cap"></i> What You'll Learn:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>AI System Architecture:</strong> Design scalable and maintainable AI system architectures</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>MLOps Implementation:</strong> Build continuous integration and deployment pipelines for AI systems</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Model Deployment Strategies:</strong> Deploy AI models to production with monitoring and maintenance</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Performance Optimization:</strong> Optimize AI systems for speed, accuracy, and resource efficiency</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Security & Compliance:</strong> Implement security best practices and regulatory compliance for AI systems</li>
+                            </ul>
+                        </div>
+                        <div class="training-highlights" style="margin-top: 15px; background-color: #f0f8ff; border-left-color: #0099ff;">
+                            <h4><i class="fas fa-certificate"></i> Program Details:</h4>
+                            <ul>
+                                <li><i class="fas fa-clock"></i> Duration: 8 weeks (part-time)</li>
+                                <li><i class="fas fa-users"></i> Format: Technical workshops + capstone project</li>
+                                <li><i class="fas fa-level-up-alt"></i> Level: Advanced (technical background required)</li>
+                                <li><i class="fas fa-certificate"></i> Certification: BetaNexAI AI Systems Engineer</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- AI-Driven Business -->
+                    <div class="training-card fade-in">
+                        <div class="training-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h3>AI-Driven Business</h3>
+                        <p>A strategic program for business leaders and managers focused on integrating AI into core business models and operations. Learn to identify AI opportunities, develop implementation roadmaps, measure ROI, and drive AI adoption across your organization.</p>
+                        <div class="training-highlights">
+                            <h4><i class="fas fa-graduation-cap"></i> What You'll Learn:</h4>
+                            <ul>
+                                <li><i class="fas fa-check-circle"></i> <strong>AI Business Strategy:</strong> Develop comprehensive AI implementation strategies aligned with business goals</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Opportunity Identification:</strong> Identify high-impact AI opportunities across business functions</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>ROI Analysis & Measurement:</strong> Calculate and track return on investment for AI initiatives</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Change Management:</strong> Lead organizational change and drive AI adoption across teams</li>
+                                <li><i class="fas fa-check-circle"></i> <strong>Vendor Selection & Management:</strong> Evaluate and manage AI technology vendors and partners</li>
+                            </ul>
+                        </div>
+                        <div class="training-highlights" style="margin-top: 15px; background-color: #f0f8ff; border-left-color: #0099ff;">
+                            <h4><i class="fas fa-certificate"></i> Program Details:</h4>
+                            <ul>
+                                <li><i class="fas fa-clock"></i> Duration: 4 weeks (part-time)</li>
+                                <li><i class="fas fa-users"></i> Format: Executive sessions + case studies</li>
+                                <li><i class="fas fa-level-up-alt"></i> Level: All levels (business focus)</li>
+                                <li><i class="fas fa-certificate"></i> Certification: BetaNexAI AI Business Strategist</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
@@ -2736,12 +3240,12 @@
                 <!-- Combined CTA Section at Bottom -->
                 <div class="ai-cta-section fade-in">
                     <div class="ai-cta-content">
-                        <h2>Ready to Transform Your Business with AI?</h2>
-                        <p>Whether you're looking to implement AI products or train your team, BetaNexAI has the solutions you need to stay ahead in the AI revolution.</p>
+                        <h2>Ready to Upskill Your Team with AI Training?</h2>
+                        <p>Empower your organization with the AI skills needed to thrive in the digital age. Choose from our comprehensive training programs or request a customized corporate training solution.</p>
                         
                         <div class="ai-cta-buttons">
-                            <a href="#" class="ai-cta-button" data-page="contact">Get AI Products Demo</a>
-                            <a href="#" class="ai-cta-button secondary" data-page="contact">Enroll in AI Training</a>
+                            <a href="#" class="ai-cta-button" data-page="contact">Enroll in AI Training</a>
+                            <a href="#" class="ai-cta-button secondary" data-page="ai-products">Explore AI Products</a>
                         </div>
                     </div>
                 </div>
@@ -3188,10 +3692,40 @@
                 e.preventDefault();
                 const blogPostId = this.getAttribute('data-blog-post');
                 if (blogPostId) {
-                    // For blog posts, we need a different approach
-                    // Since individual blog posts are separate sections
-                    // We'll just navigate to the blogs page for now
-                    showPage('blogs');
+                    // Show individual blog article page
+                    const articlePage = document.getElementById(blogPostId + '-article');
+                    if (articlePage) {
+                        // Hide all pages
+                        pages.forEach(page => {
+                            page.classList.remove('active');
+                        });
+                        
+                        // Show the blog article page
+                        articlePage.classList.add('active');
+                        
+                        // Update active navigation link to blogs
+                        navLinks.forEach(link => {
+                            link.classList.remove('active');
+                            if (link.getAttribute('data-page') === 'blogs') {
+                                link.classList.add('active');
+                            }
+                        });
+                        
+                        // Close mobile menu if open
+                        if (window.innerWidth <= 768) {
+                            navLinksContainer.classList.remove('active');
+                            hamburger.innerHTML = '<i class="fas fa-bars"></i>';
+                        }
+                        
+                        // Scroll to top
+                        window.scrollTo({ top: 0, behavior: 'smooth' });
+                        
+                        // Update browser history
+                        history.pushState({ page: blogPostId + '-article' }, '', `#${blogPostId}-article`);
+                        
+                        // Trigger fade-in animations for new content
+                        setTimeout(fadeInOnScroll, 100);
+                    }
                 }
             }
             
@@ -3229,7 +3763,34 @@
             // Handle browser back/forward buttons
             window.addEventListener('popstate', function(event) {
                 if (event.state && event.state.page) {
-                    showPage(event.state.page);
+                    const pageId = event.state.page;
+                    if (pageId.includes('-article')) {
+                        // It's a blog article
+                        const articleId = pageId.replace('-article', '');
+                        const articlePage = document.getElementById(pageId);
+                        if (articlePage) {
+                            // Hide all pages
+                            pages.forEach(page => {
+                                page.classList.remove('active');
+                            });
+                            
+                            // Show the blog article page
+                            articlePage.classList.add('active');
+                            
+                            // Update active navigation link to blogs
+                            navLinks.forEach(link => {
+                                link.classList.remove('active');
+                                if (link.getAttribute('data-page') === 'blogs') {
+                                    link.classList.add('active');
+                                }
+                            });
+                            
+                            // Trigger fade-in animations for new content
+                            setTimeout(fadeInOnScroll, 100);
+                        }
+                    } else {
+                        showPage(pageId);
+                    }
                 } else {
                     showPage('home');
                 }
@@ -3239,6 +3800,29 @@
             const hash = window.location.hash.substring(1);
             if (hash && document.getElementById(hash + '-page')) {
                 showPage(hash);
+            } else if (hash && document.getElementById(hash)) {
+                // It might be a blog article
+                const articlePage = document.getElementById(hash);
+                if (articlePage) {
+                    // Hide all pages
+                    pages.forEach(page => {
+                        page.classList.remove('active');
+                    });
+                    
+                    // Show the blog article page
+                    articlePage.classList.add('active');
+                    
+                    // Update active navigation link to blogs
+                    navLinks.forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('data-page') === 'blogs') {
+                            link.classList.add('active');
+                        }
+                    });
+                    
+                    // Trigger fade-in animations for new content
+                    setTimeout(fadeInOnScroll, 100);
+                }
             } else {
                 showPage('home');
             }
@@ -3499,41 +4083,6 @@ This project proposal was submitted from the BetaNexAI careers page.
                 }
             });
         });
-        
-        // Add CSS for industry tabs and highlighted navigation buttons
-        const style = document.createElement('style');
-        style.textContent = `
-            .industry-tabs {
-                margin-bottom: 40px;
-            }
-            
-            .industry-tab {
-                background-color: var(--light-blue);
-                border: 2px solid transparent;
-                color: var(--primary-blue);
-                padding: 10px 20px;
-                border-radius: 30px;
-                font-weight: 600;
-                cursor: pointer;
-                transition: var(--transition);
-                margin: 5px;
-                font-size: 15px;
-            }
-            
-            .industry-tab:hover {
-                background-color: var(--primary-blue);
-                color: white;
-                transform: translateY(-3px);
-            }
-            
-            .industry-tab.active {
-                background-color: var(--primary-blue);
-                color: white;
-                border-color: var(--primary-blue);
-                box-shadow: 0 5px 15px rgba(0, 102, 204, 0.2);
-            }
-        `;
-        document.head.appendChild(style);
     </script>
 </body>
 </html>
